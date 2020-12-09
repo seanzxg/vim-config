@@ -1,18 +1,8 @@
-## 清单
+## 问题
 
-### vim基础配置
-
-
-
-### vim快捷键
-
-
-
-### 文件操作
-
-
-
-### 命令
+- [x] 修复emmet提示问题
+- [x] 修复nerdtree和coc命令模式冲突
+- [ ] snippets失效问题
 
 
 
@@ -25,6 +15,7 @@ berw install neovim
 git clone git@github.com:seanzxg/vim-config.git
 ln -s vim-config/init.vim .vimrc
 ln -s vim-config/init.vim .config/nvim/init.vim
+ln -s /Users/sean/vim-config/coc-settings.json /Users/sean/.config/nvim/
 nvim .vimrc
 :PluginInstall
 ```
@@ -40,3 +31,21 @@ Keys-key bindings- `+`
 command+/   send++
 
 command+p	send :CtrlP\r
+
+command+.	send ,qf
+
+
+
+其他安装
+
+:h provider.txt
+
+npm install -g neovim
+
+or
+
+yarn global add neovim
+
+python3 -m pip install --user --upgrade pynvim
+
+sudo gem install neovim
