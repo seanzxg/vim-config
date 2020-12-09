@@ -364,10 +364,12 @@ let g:ctrlp_prompt_mappings = {
   \ 'PrtSelectMove("k")':   ['<c-p>', '<up>'],
   \ }
 
+let g:ctrlp_map = ''
+
 " ==================================================================================
 " nerdtree config
 
-nmap <C-n> :NERDTreeToggle<CR>
+" nmap <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeIgnore = ['^node_modules$']
 
 " open NERDTree automatically
