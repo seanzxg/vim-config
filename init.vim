@@ -153,6 +153,7 @@ let g:coc_global_extensions = [
   \ 'coc-html', 
   \ 'coc-svg', 
   \ 'coc-tabnine', 
+  \ 'coc-snippets', 
   \ ]
 
 " 不设置文本编辑失效
