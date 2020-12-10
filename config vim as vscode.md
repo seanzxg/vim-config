@@ -49,3 +49,12 @@ yarn global add neovim
 python3 -m pip install --user --upgrade pynvim
 
 sudo gem install neovim
+
+
+
+### 字体
+
+https://vimawesome.com/plugin/vim-devicons
+
+https://github.com/ryanoasis/nerd-fonts#font-installation
+

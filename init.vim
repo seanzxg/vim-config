@@ -9,6 +9,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
+Plug 'ryanoasis/vim-devicons'
+
 call plug#end()
 " ==================================================================================
 " self config
@@ -29,6 +31,7 @@ vnoremap p "_dP
 
 noremap j gj
 noremap k gk
+
 
 " 命令行的快捷键
 cnoremap <C-j> <t_kd>
@@ -132,7 +135,8 @@ set nocompatible
 " vim 自身命令行模式智能补全
 set wildmenu
 
-
+" 剪切板
+set clipboard=unnamed
 
 "===================================================================================
 "  theme color
@@ -304,7 +308,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics.
-nnoremap <silent><nowait> <leader>ca  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> <leader>cd  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
 nnoremap <silent><nowait> <leader>ce  :<C-u>CocList extensions<cr>
 " Show commands.
@@ -341,33 +345,10 @@ let g:coc_snippet_next = '<tab>'
 
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
-
-" Create default mappings
-let g:NERDCreateDefaultMappings = 1
-
-" Add spaces after comment delimiters by default
+let g:NERDCreateDefaultMappings = 0
 let g:NERDSpaceDelims = 1
-
-" Use compact syntax for prettified multi-line comments
-let g:NERDCompactSexyComs = 1
-
-" Align line-wise comment delimiters flush left instead of following code indentation
 let g:NERDDefaultAlign = 'left'
-
-" Set a language to use its alternate delimiters by default
-let g:NERDAltDelims_java = 1
-
-" Add your own custom formats or override the defaults
-let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
-
-" Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
-
-" Enable trimming of trailing whitespace when uncommenting
-let g:NERDTrimTrailingWhitespace = 1
-
-" Enable NERDCommenterToggle to check all selected lines is commented or not 
-let g:NERDToggleCheckAllLines = 1
 
 
 " ==================================================================================
@@ -389,6 +370,3 @@ let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:10'
 
 let g:NERDTreeIgnore = ['^node_modules$']
 
-autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
