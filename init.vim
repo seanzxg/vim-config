@@ -11,6 +11,8 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 Plug 'ryanoasis/vim-devicons'
 
+Plug 'vim-airline/vim-airline'
+
 call plug#end()
 " ==================================================================================
 " self config
@@ -141,6 +143,9 @@ set clipboard=unnamed
 "===================================================================================
 "  theme color
 colorscheme gruvbox
+
+" 自动改变当前项目的目录
+autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
 
 
 "===================================================================================
@@ -369,4 +374,9 @@ let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:10'
 " nerdtree config
 
 let g:NERDTreeIgnore = ['^node_modules$']
-
+autocmd StdinReadPre * let s:std_in=1
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | wincmd p | ene | exe 'NERDTree' argv()[0] | endif
+" ==================================================================================
+" airline config
+let g:airline#extensions#tabline#enabled = 1
