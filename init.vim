@@ -80,13 +80,23 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
 
-" 定义快捷键关闭当前分割窗口
-nmap <Leader>q :q<CR>
 
 " 定义快捷键保存所有窗口内容并退出 vim
 nmap <Leader>WQ :wa<CR>:q<CR>
 " 不做任何保存，直接退出 vim
 nmap <Leader>Q :qa!<CR>
+
+" buffer
+
+nnoremap <Leader>1 :1b<CR>
+nnoremap <Leader>2 :2b<CR>
+nnoremap <Leader>3 :3b<CR>
+nnoremap <Leader>4 :4b<CR>
+nnoremap <Leader>5 :5b<CR>
+
+nnoremap <tab> :bn<CR>
+nnoremap <bs> :bp<CR>
+nnoremap <leader>q :bd<CR>
 
 
 "===================================================================================
@@ -135,8 +145,7 @@ set ignorecase
 " 关闭兼容模式
 set nocompatible
 " vim 自身命令行模式智能补全
-set wildmenu
-
+set wildchar=<Tab> wildmenu wildmode=full
 " 剪切板
 set clipboard=unnamed
 
@@ -267,7 +276,7 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 " Remap keys for applying codeAction to the current buffer.
 nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
+nmap <leader>fc  <Plug>(coc-fix-current)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
