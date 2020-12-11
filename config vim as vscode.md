@@ -20,6 +20,8 @@ nvim .vimrc
 :PluginInstall
 ```
 
+
+
 #### iTerm配置
 
 打开偏好设置
@@ -32,29 +34,41 @@ command+/   send++
 
 command+p	send :CtrlP\r
 
-command+.	send ,qf
+command+.	send ,/
 
 
 
-其他安装
+#### Provider支持
 
+```shell
 :h provider.txt
 
 npm install -g neovim
-
 or
-
 yarn global add neovim
 
 python3 -m pip install --user --upgrade pynvim
 
 sudo gem install neovim
 
+sudo easy_install pip
+python2 -m pip install --user --upgrade pynvim
+
+sudo gem install neovim
+```
 
 
-### 字体
+
+#### 字体
 
 https://vimawesome.com/plugin/vim-devicons
 
 https://github.com/ryanoasis/nerd-fonts#font-installation
+
+
+
+#### tmux
+
+
+
 
