@@ -3,6 +3,7 @@
     "javascript": "javascriptreact",
     "typescript": "typescriptreact"
   },
+  "html.autoClosingTags": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "typescript",

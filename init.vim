@@ -1,22 +1,32 @@
 call plug#begin()
 
-
+" 样式
+Plug 'vim-airline/vim-airline'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ryanoasis/vim-devicons'
+Plug 'morhetz/gruvbox'
+" 研发
+Plug 'ianks/vim-tsx'
 Plug 'honza/vim-snippets'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'morhetz/gruvbox'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+
+" terminal
+Plug 'voldikss/vim-floaterm'
+
+" 效率工具
+Plug 'easymotion/vim-easymotion'
 Plug 'preservim/nerdcommenter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-" jsx高亮
-Plug 'ianks/vim-tsx'
-Plug 'easymotion/vim-easymotion'
+Plug 'mbbill/undotree'
 
-Plug 'ryanoasis/vim-devicons'
 
-Plug 'vim-airline/vim-airline'
-Plug 'christoomey/vim-tmux-navigator'
+
 
 call plug#end()
 " ==================================================================================
@@ -103,6 +113,50 @@ nnoremap <tab> :bn<CR>
 nnoremap <bs> :bp<CR>
 nnoremap <leader>q :bd<CR>
 
+" global
+
+" Split the window using some nice shortcuts
+nmap <leader>sv :vsplit<cr>
+nmap <leader>ss :split<cr>
+
+" Unhighlight the last search pattern on Enter
+" nn <silent> <cr> :nohlsearch<cr><cr>
+
+" Map Ctrl+V to paste in Insert mode
+imap <C-V> <C-R>*
+
+" Map Ctrl+C to copy in Visual mode
+vmap <C-C> "+y
+
+" Add paste shortcut
+nmap <leader>p "+p
+
+" Ignore some defaults
+set wildignore=*.o,*.obj,*~,*.pyc
+set wildignore+=.env
+set wildignore+=.env[0-9]+
+set wildignore+=.git,.gitkeep
+set wildignore+=.tmp
+set wildignore+=.coverage
+set wildignore+=*DS_Store*
+set wildignore+=.sass-cache/
+set wildignore+=__pycache__/
+set wildignore+=vendor/rails/**
+set wildignore+=vendor/cache/**
+set wildignore+=*.gem
+set wildignore+=log/**
+set wildignore+=tmp/**
+set wildignore+=.tox/**
+set wildignore+=.idea/**
+set wildignore+=*.egg,*.egg-info
+set wildignore+=*.png,*.jpg,*.gif
+set wildignore+=*.so,*.swp,*.zip,*/.Trash/**,*.pdf,*.dmg,*/Library/**,*/.rbenv/**
+set wildignore+=*/.nx/**,*.app
+
+" Fold Keybindings
+nnoremap <space> za
+
+
 
 "===================================================================================
 "  vim base config
@@ -152,7 +206,56 @@ set nocompatible
 " vim 自身命令行模式智能补全
 set wildchar=<Tab> wildmenu wildmode=full
 " 剪切板
-set clipboard=unnamed
+" set clipboard=unnamed
+
+set history=100
+" 允许删除tab，line，超出start的插入
+set backspace=indent,eol,start
+" Show the current command at the bottom
+set showcmd
+" Disable beeping and flashing.
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
+" Turn on persistent undo
+" Thanks, Mr Wadsten: github.com/mikewadsten/dotfiles/
+if has('persistent_undo')
+    set undodir=~/.vim/undo//
+    set undofile
+    set undolevels=1000
+    set undoreload=10000
+endif
+
+" Use backups
+" Source:
+"   http://stackoverflow.com/a/15317146
+set backup
+set writebackup
+set backupdir=~/.vim/backup//
+
+
+" Use a specified swap folder
+" Source:
+"   http://stackoverflow.com/a/15317146
+set directory=~/.vim/swap//
+
+
+" Always show the last line
+set display+=lastline
+" UTF-8 THIS SHITTTTTT
+set encoding=utf-8
+
+" Automatically re-read the file if it has changed
+set autoread
+
+" Off on start
+set nofoldenable
+
+" Indent seems to work the best
+set foldmethod=indent
+set foldlevel=20
+
+
+
 
 "===================================================================================
 "  theme color
@@ -178,6 +281,7 @@ let g:coc_global_extensions = [
   \ 'coc-svg', 
   \ 'coc-tabnine', 
   \ 'coc-snippets', 
+  \ 'coc-floaterm', 
   \ ]
 
 " 不设置文本编辑失效
@@ -408,33 +512,25 @@ map <Leader>l <Plug>(easymotion-bd-jk)
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
 
+" ==================================================================================
+" Fugitive config
+nmap <leader>gb :Gblame<cr>
+nmap <leader>gc :Gcommit<cr>
+nmap <leader>gd :Gdiff<cr>
+nmap <leader>gg :Ggrep
+nmap <leader>gh :Glog<cr>
+nmap <leader>gl :Git pull<cr>
+nmap <leader>gp :Git push<cr>
+nmap <leader>gs :Gstatus<cr>
+nmap <leader>gw :Gbrowse<cr>
+nmap <leader>g? :map <leader>g<cr>
+
 
 " ==================================================================================
-" tmux config
+" undotree config
 
-let g:tmux_navigator_no_mappings = 1
-let g:tmux_navigator_save_on_switch = 2
-if exists('$TMUX')
-  function! TmuxOrSplitSwitch(wincmd, tmuxdir)
-    let previous_winnr = winnr()
-    silent! execute "wincmd " . a:wincmd
-    if previous_winnr == winnr()
-      call system("tmux select-pane -" . a:tmuxdir)
-      redraw!
-    endif
-  endfunction
 
-  let previous_title = substitute(system("tmux display-message -p '#{pane_title}'"), '\n', '', '')
-  let &t_ti = "\<Esc>]2;vim\<Esc>\\" . &t_ti
-  let &t_te = "\<Esc>]2;". previous_title . "\<Esc>\\" . &t_te
-
-  nnoremap <silent> <C-h> :call TmuxOrSplitSwitch('h', 'L')<cr>
-  nnoremap <silent> <C-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
-  nnoremap <silent> <C-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
-  nnoremap <silent> <C-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
-else
-  map <C-h> <C-w>h
-  map <C-j> <C-w>j
-  map <C-k> <C-w>k
-  map <C-l> <C-w>l
-endif
+nmap <leader>u :UndotreeToggle<cr>
+" Undotree settings
+let g:undotree_SplitWidth = 60
+let g:undotree_WindowLayout = 3
