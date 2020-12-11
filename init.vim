@@ -14,7 +14,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-
 " terminal
 Plug 'voldikss/vim-floaterm'
 
@@ -24,9 +23,30 @@ Plug 'preservim/nerdcommenter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'mbbill/undotree'
+Plug 'terryma/vim-expand-region'
 
-
-
+" 基础支持
+Plug 'kana/vim-textobj-user'
+" e
+Plug 'kana/vim-textobj-entire'
+" l
+Plug 'kana/vim-textobj-line'
+" c
+" Plug 'glts/vim-textobj-comment'
+" c
+Plug 'jasonlong/vim-textobj-css'
+" j
+Plug 'Julian/vim-textobj-brace'
+" x
+Plug 'whatyouhide/vim-textobj-xmlattr'
+" k v
+Plug 'vimtaku/vim-textobj-keyvalue'
+" p
+Plug 'sgur/vim-textobj-parameter'
+" u
+Plug 'jceb/vim-textobj-uri'
+" q
+Plug 'beloglazov/vim-textobj-quotes'
 
 call plug#end()
 " ==================================================================================
@@ -102,12 +122,6 @@ nmap <Leader>WQ :wa<CR>:q<CR>
 nmap <Leader>Q :qa!<CR>
 
 " buffer
-
-nnoremap <Leader>1 :1b<CR>
-nnoremap <Leader>2 :2b<CR>
-nnoremap <Leader>3 :3b<CR>
-nnoremap <Leader>4 :4b<CR>
-nnoremap <Leader>5 :5b<CR>
 
 nnoremap <tab> :bn<CR>
 nnoremap <bs> :bp<CR>
@@ -362,11 +376,11 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>r <Plug>(coc-rename)
 
 " 格式化选中代码
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+" xmap <leader>f  <Plug>(coc-format-selected)
+" nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -379,13 +393,13 @@ augroup end
 " Applying codeAction to the selected region.
 " 选中的区域做一个代码行为
 " Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
+" xmap <leader>a  <Plug>(coc-codeaction-selected)
+" nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 " Remap keys for applying codeAction to the current buffer.
-nmap <leader>ac  <Plug>(coc-codeaction)
+nmap <leader>a  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
-nmap <leader>/  <Plug>(coc-fix-current)
+nmap <leader>`  <Plug>(coc-fix-current)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
@@ -411,9 +425,11 @@ endif
 " Use CTRL-S for selections ranges.
 " Requires 'textDocument/selectionRange' support of language server.
 " nmap <silent> <C-s> <Plug>(coc-range-select)
-nmap <silent> <cr> <Plug>(coc-range-select)
+" nmap <silent> <cr> <Plug>(coc-range-select)
 " xmap <silent> <C-s> <Plug>(coc-range-select)
-xmap <silent> <cr> <Plug>(coc-range-select)
+" xmap <silent> <cr> <Plug>(coc-range-select)
+map <cr> <Plug>(expand_region_expand)
+map <S-CR> <Plug>(expand_region_shrink)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
@@ -534,3 +550,22 @@ nmap <leader>u :UndotreeToggle<cr>
 " Undotree settings
 let g:undotree_SplitWidth = 60
 let g:undotree_WindowLayout = 3
+
+
+" ==================================================================================
+" floaterm config
+let g:floaterm_keymap_toggle = '<leader>t'
+let g:floaterm_height = 0.8
+let g:floaterm_width = 0.8
+let g:floaterm_height = 0.8
+
+
+" ==================================================================================
+" textobj config
+let g:vim_textobj_parameter_mapping = 'p'
+xmap n iq
+omap n iq
+
+xmap m ij
+omap m ij
+
