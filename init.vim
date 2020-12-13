@@ -8,19 +8,15 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'morhetz/gruvbox'
 " 研发
 Plug 'ianks/vim-tsx'
-Plug 'honza/vim-snippets'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'cristianoliveira/vim-react-html-snippets'
+Plug 'honza/vim-snippets'
 
-" ES2015 code snippets (Optional)
-Plug 'epilande/vim-es2015-snippets'
-" React code snippets
-Plug 'epilande/vim-react-snippets'
 " terminal
 Plug 'voldikss/vim-floaterm'
-Plug 'cristianoliveira/vim-react-html-snippets'
 
 " 效率工具
 Plug 'easymotion/vim-easymotion'
@@ -32,6 +28,8 @@ Plug 'terryma/vim-expand-region'
 Plug 'dyng/ctrlsf.vim'
 
 " 基础支持
+Plug 'vim-china/vimdoc-cn'
+
 Plug 'kana/vim-textobj-user'
 " e
 Plug 'kana/vim-textobj-entire'
@@ -87,8 +85,14 @@ cnoremap <C-e> <End>
 inoremap <C-o> <Esc>o
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
+" 上下左右
+inoremap <C-k> <Up>
+inoremap <C-j> <Down>
+inoremap <C-p> <Up>
+inoremap <C-n> <Down>
 inoremap <C-f> <Right>
 inoremap <C-b> <Left>
+inoremap <C-l> <Right>
 
 "Smart way to move between windows
 noremap <C-j> <C-W>j
@@ -98,12 +102,6 @@ noremap <C-l> <C-W>l
 " 
 nnoremap <C-e> 2<C-e>
 nnoremap <C-y> 2<C-y>
-" 用 m/M 来切换buffer
-noremap m :bn<CR>
-noremap M :bp<CR>
-
-" 两个buffer来回切换
-nnoremap t <C-^>
 
 " remap U to <C-r> for easier redo
 nnoremap U <C-r>
@@ -126,10 +124,11 @@ nmap <Leader>WQ :wa<CR>:q<CR>
 nmap <Leader>Q :qa!<CR>
 
 " buffer
-
-" nnoremap <tab> :bn<CR>
-" nnoremap <bs> :bp<CR>
 nnoremap <leader>q :bd<CR>
+
+" 用 m/M 来切换buffer
+noremap t :bn<CR>
+noremap T :bp<CR>
 
 " global
 
@@ -142,12 +141,10 @@ nmap <leader>ss :split<cr>
 
 " Map Ctrl+V to paste in Insert mode
 imap <C-V> <C-R>*
+nmap <C-V> "+p
 
 " Map Ctrl+C to copy in Visual mode
 vmap <C-C> "+y
-
-" Add paste shortcut
-nmap <leader>p "+p
 
 " Ignore some defaults
 set wildignore=*.o,*.obj,*~,*.pyc
@@ -172,9 +169,7 @@ set wildignore+=*.so,*.swp,*.zip,*/.Trash/**,*.pdf,*.dmg,*/Library/**,*/.rbenv/*
 set wildignore+=*/.nx/**,*.app
 
 " Fold Keybindings
-" nnoremap <space> za
-
-
+nnoremap <tab> za
 
 "===================================================================================
 "  vim base config
@@ -259,8 +254,10 @@ set directory=~/.vim/swap//
 
 " Always show the last line
 set display+=lastline
+
 " UTF-8 THIS SHITTTTTT
 set encoding=utf-8
+" set helplang=cn
 
 " Automatically re-read the file if it has changed
 set autoread
@@ -386,13 +383,13 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 	  return !col || getline('.')[col - 1]  =~# '\s'
 	endfunction
 
-	let g:coc_snippet_next = '<tab>'
+	" let g:coc_snippet_next = '<tab>'
 
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 				\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-inoremap <expr> <C-n> pumvisible() ? "\<C-n>" : "<Down>"
-inoremap <expr> <C-p> pumvisible() ? "\<C-p>" : "<Up>"
+vmap <C-j> <Plug>(coc-snippets-select)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 
 " ==================================================================================
@@ -468,7 +465,7 @@ let g:undotree_WindowLayout = 3
 
 " ==================================================================================
 " floaterm config
-let g:floaterm_keymap_toggle = '<leader>t'
+let g:floaterm_keymap_toggle = '<leader>\'
 let g:floaterm_height = 0.8
 let g:floaterm_width = 0.8
 let g:floaterm_height = 0.8
