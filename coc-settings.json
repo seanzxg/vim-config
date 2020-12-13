@@ -1,9 +1,18 @@
 {
+  "list.insertMappings": {
+    "<C-n>": "<Down>",
+    "<C-p>": "<Up>"
+  },
   "emmet.includeLanguages": {
     "javascript": "javascriptreact",
     "typescript": "typescriptreact"
   },
   "html.autoClosingTags": true,
+  "snippets.extends": {
+    "javascriptreact": ["javascript"],
+    "typescriptreact": ["javascript"],
+    "typescript": ["javascript"]
+  },
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "typescript",

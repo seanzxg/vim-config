@@ -1,24 +1,42 @@
-## 问题
-
-- [x] 修复emmet提示问题
-- [x] 修复nerdtree和coc命令模式冲突
-- [ ] snippets失效问题
-
-
-
-### 安装
+## 安装
 
 #### 下载
 
 ```sh
 berw install neovim
 git clone git@github.com:seanzxg/vim-config.git
-ln -s vim-config/init.vim .vimrc
-ln -s vim-config/init.vim .config/nvim/init.vim
+ln -s /Users/sean/vim-config/init.vim /Users/sean/.vimrc
+ln -s /Users/sean/vim-config/init.vim /Users/sean/.config/nvim/init.vim
 ln -s /Users/sean/vim-config/coc-settings.json /Users/sean/.config/nvim/
 nvim .vimrc
 :PluginInstall
 ```
+
+#### 配置命令行
+
+```shell
+vim .zshrc
+alias vim="nvim"
+alias vi="nvim"
+alias vm="floaterm"
+```
+
+### 创建文件夹
+
+```shell
+mkdir .vim
+mkdir .vim/undo
+mkdir .vim/backup
+mkdir .vim/swap
+```
+
+### 字体
+
+为了nerttree的文件图标等
+
+https://vimawesome.com/plugin/vim-devicons
+
+https://github.com/ryanoasis/nerd-fonts#font-installation
 
 
 
@@ -58,16 +76,6 @@ sudo gem install neovim
 ```
 
 
-
-#### 字体
-
-https://vimawesome.com/plugin/vim-devicons
-
-https://github.com/ryanoasis/nerd-fonts#font-installation
-
-
-
-#### tmux
 
 
 

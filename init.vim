@@ -14,8 +14,13 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
+" ES2015 code snippets (Optional)
+Plug 'epilande/vim-es2015-snippets'
+" React code snippets
+Plug 'epilande/vim-react-snippets'
 " terminal
 Plug 'voldikss/vim-floaterm'
+Plug 'cristianoliveira/vim-react-html-snippets'
 
 " 效率工具
 Plug 'easymotion/vim-easymotion'
@@ -24,6 +29,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'mbbill/undotree'
 Plug 'terryma/vim-expand-region'
+Plug 'dyng/ctrlsf.vim'
 
 " 基础支持
 Plug 'kana/vim-textobj-user'
@@ -81,8 +87,6 @@ cnoremap <C-e> <End>
 inoremap <C-o> <Esc>o
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
-inoremap <C-k> <Up>
-inoremap <C-j> <Down>
 inoremap <C-f> <Right>
 inoremap <C-b> <Left>
 
@@ -123,8 +127,8 @@ nmap <Leader>Q :qa!<CR>
 
 " buffer
 
-nnoremap <tab> :bn<CR>
-nnoremap <bs> :bp<CR>
+" nnoremap <tab> :bn<CR>
+" nnoremap <bs> :bp<CR>
 nnoremap <leader>q :bd<CR>
 
 " global
@@ -168,7 +172,7 @@ set wildignore+=*.so,*.swp,*.zip,*/.Trash/**,*.pdf,*.dmg,*/Library/**,*/.rbenv/*
 set wildignore+=*/.nx/**,*.app
 
 " Fold Keybindings
-nnoremap <space> za
+" nnoremap <space> za
 
 
 
@@ -218,7 +222,7 @@ set ignorecase
 " 关闭兼容模式
 set nocompatible
 " vim 自身命令行模式智能补全
-set wildchar=<Tab> wildmenu wildmode=full
+" set wildchar=<Tab> wildmenu wildmode=full
 " 剪切板
 " set clipboard=unnamed
 
@@ -268,6 +272,8 @@ set nofoldenable
 set foldmethod=indent
 set foldlevel=20
 
+:set autochdir
+
 
 
 
@@ -314,46 +320,13 @@ set updatetime=300
 " 不要讲消息传递给 ins-completion-menu
 set shortmess+=c
 
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
-
-" NOTE: 使用此命令 ':verbose imap <tab>' 来查看是否匹配
-" 使用tab来开关自动补全
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" 使用 <c-space> 向上选择
-if has('nvim')
-  inoremap <？silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
-
-" 使<CR>自动选择第一个完成项目并通知coc。<cr>可以通过其他vim插件重新映射
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> <C-i> <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
@@ -371,30 +344,11 @@ function! s:show_documentation()
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
-
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Symbol renaming.
+" 重命名
 nmap <leader>r <Plug>(coc-rename)
-
-" 格式化选中代码
-" xmap <leader>f  <Plug>(coc-format-selected)
-" nmap <leader>f  <Plug>(coc-format-selected)
-
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
-" Applying codeAction to the selected region.
-" 选中的区域做一个代码行为
-" Example: `<leader>aap` for current paragraph
-" xmap <leader>a  <Plug>(coc-codeaction-selected)
-" nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 " Remap keys for applying codeAction to the current buffer.
 nmap <leader>a  <Plug>(coc-codeaction)
@@ -412,71 +366,33 @@ omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
-" Remap <C-f> and <C-b> for scroll float windows/popups.
-if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-endif
-
-" Use CTRL-S for selections ranges.
-" Requires 'textDocument/selectionRange' support of language server.
-" nmap <silent> <C-s> <Plug>(coc-range-select)
-" nmap <silent> <cr> <Plug>(coc-range-select)
-" xmap <silent> <C-s> <Plug>(coc-range-select)
-" xmap <silent> <cr> <Plug>(coc-range-select)
-map <cr> <Plug>(expand_region_expand)
-map <S-CR> <Plug>(expand_region_shrink)
-
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
-
 " Add `:Fold` command to fold current buffer.
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-" Add (Neo)Vim's native statusline support.
-" NOTE: Please see `:h coc-status` for integrations with external plugins that
-" provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-" Mappings for CoCList
-" Show all diagnostics.
-nnoremap <silent><nowait> <leader>cd  :<C-u>CocList diagnostics<cr>
-" Manage extensions.
-nnoremap <silent><nowait> <leader>ce  :<C-u>CocList extensions<cr>
-" Show commands.
-nnoremap <silent><nowait> <leader>cc  :<C-u>CocList commands<cr>
-" Find symbol of current document.
-nnoremap <silent><nowait> <leader>co  :<C-u>CocList outline<cr>
-" Search workspace symbols.
-nnoremap <silent><nowait> <leader>cs  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent><nowait> <leader>cj  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent><nowait> <leader>ck  :<C-u>CocPrev<CR>
-" Resume latest coc list.
-nnoremap <silent><nowait> <leader>cp  :<C-u>CocListResume<CR>
+	inoremap <silent><expr> <TAB>
+	  \ pumvisible() ? coc#_select_confirm() :
+	  \ coc#expandableOrJumpable() ?
+	  \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+	  \ <SID>check_back_space() ? "\<TAB>" :
+	  \ coc#refresh()
 
-" coc-snippets
+	function! s:check_back_space() abort
+	  let col = col('.') - 1
+	  return !col || getline('.')[col - 1]  =~# '\s'
+	endfunction
 
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+	let g:coc_snippet_next = '<tab>'
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+				\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-let g:coc_snippet_next = '<tab>'
+inoremap <expr> <C-n> pumvisible() ? "\<C-n>" : "<Down>"
+inoremap <expr> <C-p> pumvisible() ? "\<C-p>" : "<Up>"
 
 
 " ==================================================================================
@@ -508,9 +424,7 @@ let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:10'
 " nerdtree config
 
 let g:NERDTreeIgnore = ['^node_modules$']
-autocmd StdinReadPre * let s:std_in=1
-autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | wincmd p | ene | exe 'NERDTree' argv()[0] | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " ==================================================================================
 " airline config
@@ -569,3 +483,49 @@ omap n iq
 xmap m ij
 omap m ij
 
+" ==================================================================================
+" ctrlsf config
+let g:ctrlsf_auto_focus = {
+    \ "at": "start",
+    \ "duration_less_than": 1000
+    \ }
+let g:ctrlsf_winsize = '25%'
+inoremap <C-t> <Esc>:CtrlSFToggle<CR>
+nnoremap <C-t> :CtrlSFToggle<CR>
+ 
+let g:ctrlsf_mapping = {
+      \"open"    : ["<CR>", "o"],
+      \"openb"   : "O",
+      \"split"   : "s",
+      \"vsplit"  : "v",
+      \"tab"     : "t",
+      \"tabb"    : "T",
+      \"popen"   : "",
+      \"popenf"  : "p",
+      \"quit"    : "q",
+      \"next"    : "n",
+      \"prev"    : "N",
+    \ }
+
+" tab custom need bottom
+" nnoremap <tab> :bn<CR>
+
+" ==================================================================================
+" vim-region
+map <Space> <Plug>(expand_region_expand)
+map <S-S> <Plug>(expand_region_shrink)
+let g:expand_region_text_objects = {
+      \ 'ib'  :1,
+      \ 'iB'  :1,
+      \ 'i)'  :1,
+      \ 'i]'  :1,
+      \ 'i}'  :1,
+      \ 'i>'  :1,
+      \ 'a>'  :1,
+      \ 'at'  :1,
+      \ 'il'  :1,
+      \ }
+" Use CTRL-S for selections ranges.
+" Requires 'textDocument/selectionRange' support of language server.
+nmap <silent> <cr> <Plug>(coc-range-select)
+xmap <silent> <cr> <Plug>(coc-range-select)
