@@ -15,6 +15,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'cristianoliveira/vim-react-html-snippets'
 Plug 'honza/vim-snippets'
 
+Plug 'alvan/vim-closetag'
+Plug 'valloric/matchtagalways'
+
 " terminal
 Plug 'voldikss/vim-floaterm'
 
@@ -298,7 +301,6 @@ let g:coc_global_extensions = [
   \ 'coc-svg', 
   \ 'coc-tabnine', 
   \ 'coc-snippets', 
-  \ 'coc-floaterm', 
   \ ]
 
 " 不设置文本编辑失效
