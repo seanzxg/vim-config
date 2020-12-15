@@ -3,7 +3,7 @@ call plug#begin()
 " 样式
 Plug 'vim-airline/vim-airline'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'morhetz/gruvbox'
 " 研发
@@ -29,6 +29,10 @@ Plug 'scrooloose/nerdtree'
 Plug 'mbbill/undotree'
 Plug 'terryma/vim-expand-region'
 Plug 'dyng/ctrlsf.vim'
+Plug 'airblade/vim-rooter'
+Plug 'tpope/vim-repeat'
+Plug 'terryma/vim-multiple-cursors'
+
 
 " 基础支持
 Plug 'vim-china/vimdoc-cn'
@@ -38,8 +42,6 @@ Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 " l
 Plug 'kana/vim-textobj-line'
-" c
-" Plug 'glts/vim-textobj-comment'
 " c
 Plug 'jasonlong/vim-textobj-css'
 " j
@@ -272,7 +274,7 @@ set nofoldenable
 set foldmethod=indent
 set foldlevel=20
 
-:set autochdir
+" :set autochdir
 
 
 
@@ -407,6 +409,7 @@ let g:NERDCommentEmptyLines = 1
 
 " ==================================================================================
 " ctrlp config
+let g:ctrlp_map = ''
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 let g:ctrlp_prompt_mappings = {
@@ -528,3 +531,9 @@ let g:expand_region_text_objects = {
 " Requires 'textDocument/selectionRange' support of language server.
 nmap <silent> <cr> <Plug>(coc-range-select)
 xmap <silent> <cr> <Plug>(coc-range-select)
+
+" ==================================================================================
+" vim-root config
+
+let g:rooter_patterns = ['src', '.git', 'yarn.lock', 'package.json']
+
