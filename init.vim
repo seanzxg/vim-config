@@ -291,6 +291,13 @@ autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
 "===================================================================================
 "  coc.nvim config
 
+let g:coc_filetype_map = {
+  \ 'html.swig': 'html',
+  \ 'wxss': 'css',
+  \ 'javascript.jsx': 'javascriptreact',
+  \ 'typescript.tsx': 'typescriptreact',
+  \ }
+
 let g:coc_global_extensions = [
   \ 'coc-pairs',
   \ 'coc-tsserver',
@@ -428,10 +435,12 @@ let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:10'
 
 let g:NERDTreeIgnore = ['^node_modules$']
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:NERDTreeWinPos = "right"
 
 " ==================================================================================
 " airline config
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'jsformatter'
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
 " ==================================================================================
@@ -492,9 +501,10 @@ let g:ctrlsf_auto_focus = {
     \ "at": "start",
     \ "duration_less_than": 1000
     \ }
-let g:ctrlsf_winsize = '25%'
+let g:ctrlsf_winsize = '31%'
 inoremap <C-t> <Esc>:CtrlSFToggle<CR>
 nnoremap <C-t> :CtrlSFToggle<CR>
+let g:ctrlsf_position = 'bottom'
  
 let g:ctrlsf_mapping = {
       \"open"    : ["<CR>", "o"],
@@ -518,8 +528,6 @@ let g:ctrlsf_mapping = {
 map <Space> <Plug>(expand_region_expand)
 map <S-S> <Plug>(expand_region_shrink)
 let g:expand_region_text_objects = {
-      \ 'ib'  :1,
-      \ 'iB'  :1,
       \ 'i)'  :1,
       \ 'i]'  :1,
       \ 'i}'  :1,

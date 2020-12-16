@@ -3,6 +3,7 @@
     "<C-n>": "<Down>",
     "<C-p>": "<Up>"
   },
+  "suggest.noselect": false,
   "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/snippets"],
   "emmet.includeLanguages": {
     "javascript": "javascriptreact",
