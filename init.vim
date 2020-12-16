@@ -32,6 +32,7 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'airblade/vim-rooter'
 Plug 'tpope/vim-repeat'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-eunuch'
 
 
 " 基础支持
