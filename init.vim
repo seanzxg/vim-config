@@ -6,7 +6,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 Plug 'morhetz/gruvbox'
 " 研发
-Plug 'ianks/vim-tsx'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
@@ -17,7 +16,10 @@ Plug 'honza/vim-snippets'
 Plug 'alvan/vim-closetag'
 Plug 'valloric/matchtagalways'
 Plug 'andrewradev/tagalong.vim'
-" Plug 'nathanaelkane/vim-indent-guides'
+
+Plug 'HerringtonDarkholme/yats.vim'
+" or Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
 
 " terminal
 Plug 'voldikss/vim-floaterm'
@@ -25,7 +27,8 @@ Plug 'voldikss/vim-floaterm'
 " 效率工具
 Plug 'easymotion/vim-easymotion'
 Plug 'preservim/nerdcommenter'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'tacahiroy/ctrlp-funky'
 Plug 'scrooloose/nerdtree'
 Plug 'mbbill/undotree'
 Plug 'terryma/vim-expand-region'
@@ -34,6 +37,8 @@ Plug 'airblade/vim-rooter'
 Plug 'tpope/vim-repeat'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-eunuch'
+Plug 'jiangmiao/auto-pairs'
+
 
 
 
@@ -281,7 +286,6 @@ autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
 "  coc.nvim config
 
 let g:coc_global_extensions = [
-  \ 'coc-pairs',
   \ 'coc-tsserver',
   \ 'coc-prettier',
   \ 'coc-json',
@@ -411,6 +415,21 @@ let g:ctrlp_prompt_mappings = {
 
 " let g:ctrlp_map = ''
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:10'
+
+" CtrlP auto cache clearing.
+" ----------------------------------------------------------------------------
+function! SetupCtrlP()
+  if exists("g:loaded_ctrlp") && g:loaded_ctrlp
+    augroup CtrlPExtension
+      autocmd!
+      autocmd FocusGained  * CtrlPClearCache
+      autocmd BufWritePost * CtrlPClearCache
+    augroup END
+  endif
+endfunction
+if has("autocmd")
+  autocmd VimEnter * :call SetupCtrlP()
+endif
 
 " ==================================================================================
 " nerdtree config
