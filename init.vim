@@ -3,7 +3,6 @@ call plug#begin()
 " 样式
 Plug 'vim-airline/vim-airline'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'morhetz/gruvbox'
 " 研发
@@ -17,6 +16,8 @@ Plug 'honza/vim-snippets'
 
 Plug 'alvan/vim-closetag'
 Plug 'valloric/matchtagalways'
+Plug 'andrewradev/tagalong.vim'
+Plug 'nathanaelkane/vim-indent-guides'
 
 " terminal
 Plug 'voldikss/vim-floaterm'
@@ -35,6 +36,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-eunuch'
 
 
+
 " 基础支持
 Plug 'vim-china/vimdoc-cn'
 
@@ -45,18 +47,10 @@ Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-line'
 " c
 Plug 'jasonlong/vim-textobj-css'
-" j
-Plug 'Julian/vim-textobj-brace'
 " x
 Plug 'whatyouhide/vim-textobj-xmlattr'
 " k v
 Plug 'vimtaku/vim-textobj-keyvalue'
-" p
-Plug 'sgur/vim-textobj-parameter'
-" u
-Plug 'jceb/vim-textobj-uri'
-" q
-Plug 'beloglazov/vim-textobj-quotes'
 
 call plug#end()
 " ==================================================================================
@@ -278,8 +272,6 @@ set foldlevel=20
 " :set autochdir
 
 
-
-
 "===================================================================================
 "  theme color
 colorscheme gruvbox
@@ -287,16 +279,8 @@ colorscheme gruvbox
 " 自动改变当前项目的目录
 autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
 
-
 "===================================================================================
 "  coc.nvim config
-
-let g:coc_filetype_map = {
-  \ 'html.swig': 'html',
-  \ 'wxss': 'css',
-  \ 'javascript.jsx': 'javascriptreact',
-  \ 'typescript.tsx': 'typescriptreact',
-  \ }
 
 let g:coc_global_extensions = [
   \ 'coc-pairs',
@@ -520,22 +504,10 @@ let g:ctrlsf_mapping = {
       \"prev"    : "N",
     \ }
 
-" tab custom need bottom
-" nnoremap <tab> :bn<CR>
-
 " ==================================================================================
 " vim-region
 map <Space> <Plug>(expand_region_expand)
 map <S-S> <Plug>(expand_region_shrink)
-let g:expand_region_text_objects = {
-      \ 'i)'  :1,
-      \ 'i]'  :1,
-      \ 'i}'  :1,
-      \ 'i>'  :1,
-      \ 'a>'  :1,
-      \ 'at'  :1,
-      \ 'il'  :1,
-      \ }
 " Use CTRL-S for selections ranges.
 " Requires 'textDocument/selectionRange' support of language server.
 nmap <silent> <cr> <Plug>(coc-range-select)
@@ -543,6 +515,26 @@ xmap <silent> <cr> <Plug>(coc-range-select)
 
 " ==================================================================================
 " vim-root config
-
 let g:rooter_patterns = ['src', '.git', 'yarn.lock', 'package.json']
 
+" ==================================================================================
+" closetag config
+let g:closetag_filetypes = 'html,javascript,javascriptreact,typescript,typescriptreact'
+let g:closetag_regions = {
+  \ 'typescriptreact': 'jsxRegion,tsxRegion',
+  \ 'javascriptreact': 'jsxRegion',
+  \ }
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'javascript' : 1,
+    \ 'javascriptreact' : 1,
+    \ 'typescript' : 1,
+    \ 'typescriptreact' : 1,
+    \}
+
+
+" ==================================================================================
+" indent guide config
+let g:indent_guides_enable_on_vim_startup = 1

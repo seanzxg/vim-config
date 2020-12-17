@@ -26,5 +26,7 @@
     "javascriptreact",
     "typescript.tsx",
     "graphql"
-  ]
+  ],
+  "tsserver.formatOnType": true,
+  "coc.preferences.formatOnType": true
 }
