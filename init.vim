@@ -17,7 +17,7 @@ Plug 'honza/vim-snippets'
 Plug 'alvan/vim-closetag'
 Plug 'valloric/matchtagalways'
 Plug 'andrewradev/tagalong.vim'
-Plug 'nathanaelkane/vim-indent-guides'
+" Plug 'nathanaelkane/vim-indent-guides'
 
 " terminal
 Plug 'voldikss/vim-floaterm'
@@ -73,7 +73,6 @@ vnoremap p "_dP
 noremap j gj
 noremap k gk
 
-
 " 命令行的快捷键
 cnoremap <C-j> <t_kd>
 cnoremap <C-k> <t_ku>
@@ -99,7 +98,7 @@ noremap <C-j> <C-W>j
 noremap <C-k> <C-W>k
 noremap <C-h> <C-W>h
 noremap <C-l> <C-W>l
-" 
+
 nnoremap <C-e> 2<C-e>
 nnoremap <C-y> 2<C-y>
 
@@ -115,7 +114,6 @@ vnoremap > >gv
 
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-
 
 
 " 定义快捷键保存所有窗口内容并退出 vim
@@ -168,8 +166,7 @@ set wildignore+=*.png,*.jpg,*.gif
 set wildignore+=*.so,*.swp,*.zip,*/.Trash/**,*.pdf,*.dmg,*/Library/**,*/.rbenv/**
 set wildignore+=*/.nx/**,*.app
 
-" Fold Keybindings
-nnoremap <tab> za
+
 
 "===================================================================================
 "  vim base config
@@ -183,8 +180,8 @@ set ruler
 " 开启行号显示
 set number
 " 高亮显示当前行/列
-set cursorline
-set cursorcolumn
+" set cursorline
+" set cursorcolumn
 " 高亮显示搜索结果
 set hlsearch
 " 禁止折行
@@ -276,6 +273,7 @@ set foldlevel=20
 "  theme color
 colorscheme gruvbox
 
+
 " 自动改变当前项目的目录
 autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
 
@@ -285,16 +283,16 @@ autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
 let g:coc_global_extensions = [
   \ 'coc-pairs',
   \ 'coc-tsserver',
-  \ 'coc-prettier', 
-  \ 'coc-json', 
-  \ 'coc-css', 
-  \ 'coc-cssmodules', 
-  \ 'coc-emmet', 
-  \ 'coc-highlight', 
-  \ 'coc-html', 
-  \ 'coc-svg', 
-  \ 'coc-tabnine', 
-  \ 'coc-snippets', 
+  \ 'coc-prettier',
+  \ 'coc-json',
+  \ 'coc-css',
+  \ 'coc-cssmodules',
+  \ 'coc-emmet',
+  \ 'coc-highlight',
+  \ 'coc-html',
+  \ 'coc-svg',
+  \ 'coc-tabnine',
+  \ 'coc-snippets',
   \ ]
 
 " 不设置文本编辑失效
@@ -367,19 +365,19 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 
-	inoremap <silent><expr> <TAB>
-	  \ pumvisible() ? coc#_select_confirm() :
-	  \ coc#expandableOrJumpable() ?
-	  \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-	  \ <SID>check_back_space() ? "\<TAB>" :
-	  \ coc#refresh()
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? coc#_select_confirm() :
+  \ coc#expandableOrJumpable() ?
+  \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
 
-	function! s:check_back_space() abort
-	  let col = col('.') - 1
-	  return !col || getline('.')[col - 1]  =~# '\s'
-	endfunction
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
-	" let g:coc_snippet_next = '<tab>'
+" let g:coc_snippet_next = '<tab>'
 
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 				\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
@@ -454,8 +452,6 @@ nmap <leader>g? :map <leader>g<cr>
 
 " ==================================================================================
 " undotree config
-
-
 nmap <leader>u :UndotreeToggle<cr>
 " Undotree settings
 let g:undotree_SplitWidth = 60
@@ -489,7 +485,7 @@ let g:ctrlsf_winsize = '31%'
 inoremap <C-t> <Esc>:CtrlSFToggle<CR>
 nnoremap <C-t> :CtrlSFToggle<CR>
 let g:ctrlsf_position = 'bottom'
- 
+
 let g:ctrlsf_mapping = {
       \"open"    : ["<CR>", "o"],
       \"openb"   : "O",
