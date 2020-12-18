@@ -2,9 +2,10 @@ call plug#begin()
 
 " 样式
 Plug 'vim-airline/vim-airline'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 Plug 'morhetz/gruvbox'
+Plug 'Yggdroot/indentLine'
+
 " 研发
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-surround'
@@ -12,13 +13,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'cristianoliveira/vim-react-html-snippets'
 Plug 'honza/vim-snippets'
-
 Plug 'alvan/vim-closetag'
 Plug 'valloric/matchtagalways'
 Plug 'andrewradev/tagalong.vim'
-
 Plug 'HerringtonDarkholme/yats.vim'
-" or Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 
 " terminal
@@ -29,33 +27,23 @@ Plug 'easymotion/vim-easymotion'
 Plug 'preservim/nerdcommenter'
 Plug 'kien/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
-Plug 'scrooloose/nerdtree'
 Plug 'mbbill/undotree'
 Plug 'terryma/vim-expand-region'
 Plug 'dyng/ctrlsf.vim'
-Plug 'airblade/vim-rooter'
 Plug 'tpope/vim-repeat'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-eunuch'
 Plug 'jiangmiao/auto-pairs'
 
-
-
-
 " 基础支持
 Plug 'vim-china/vimdoc-cn'
-
 Plug 'kana/vim-textobj-user'
 " e
 Plug 'kana/vim-textobj-entire'
 " l
 Plug 'kana/vim-textobj-line'
-" c
-Plug 'jasonlong/vim-textobj-css'
 " x
 Plug 'whatyouhide/vim-textobj-xmlattr'
-" k v
-Plug 'vimtaku/vim-textobj-keyvalue'
 
 call plug#end()
 " ==================================================================================
@@ -240,12 +228,13 @@ if has('persistent_undo')
     set undoreload=10000
 endif
 
+" coc 会因为backup失效，所以注销掉
 " Use backups
 " Source:
 "   http://stackoverflow.com/a/15317146
-set backup
-set writebackup
-set backupdir=~/.vim/backup//
+" set backup
+" set writebackup
+" set backupdir=~/.vim/backup//
 
 
 " Use a specified swap folder
@@ -272,6 +261,10 @@ set foldmethod=indent
 set foldlevel=20
 
 " :set autochdir
+" 重新打开文件,回到上次鼠标悬停的位置
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif 
 
 
 "===================================================================================
@@ -281,113 +274,6 @@ colorscheme gruvbox
 
 " 自动改变当前项目的目录
 autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
-
-"===================================================================================
-"  coc.nvim config
-
-let g:coc_global_extensions = [
-  \ 'coc-tsserver',
-  \ 'coc-prettier',
-  \ 'coc-json',
-  \ 'coc-css',
-  \ 'coc-cssmodules',
-  \ 'coc-emmet',
-  \ 'coc-highlight',
-  \ 'coc-html',
-  \ 'coc-svg',
-  \ 'coc-tabnine',
-  \ 'coc-snippets',
-  \ ]
-
-" 不设置文本编辑失效
-set hidden
-
-" 有些服务会因为backup文件失效
-set nobackup
-set nowritebackup
-
-" 为显示消息展示更多空间
-set cmdheight=2
-
-" 使用更长的updatetime(默认是4000 ms = 4 s)会导致明显的“延迟和糟糕的用户体验”。
-set updatetime=300
-
-" 不要讲消息传递给 ins-completion-menu
-set shortmess+=c
-
-" Use `[g` and `]g` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" GoTo code navigation.
-nmap <silent> <C-i> <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window.
-" 使用K展示预览文档
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" 重命名
-nmap <leader>r <Plug>(coc-rename)
-
-" Remap keys for applying codeAction to the current buffer.
-nmap <leader>a  <Plug>(coc-codeaction)
-" Apply AutoFix to problem on the current line.
-nmap <leader>`  <Plug>(coc-fix-current)
-
-" Map function and class text objects
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-xmap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap af <Plug>(coc-funcobj-a)
-xmap ic <Plug>(coc-classobj-i)
-omap ic <Plug>(coc-classobj-i)
-xmap ac <Plug>(coc-classobj-a)
-omap ac <Plug>(coc-classobj-a)
-
-" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
-" Add `:Fold` command to fold current buffer.
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-" Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
-
-inoremap <silent><expr> <TAB>
-  \ pumvisible() ? coc#_select_confirm() :
-  \ coc#expandableOrJumpable() ?
-  \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ coc#refresh()
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" let g:coc_snippet_next = '<tab>'
-
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-				\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-vmap <C-j> <Plug>(coc-snippets-select)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 
 " ==================================================================================
@@ -431,18 +317,11 @@ if has("autocmd")
   autocmd VimEnter * :call SetupCtrlP()
 endif
 
-" ==================================================================================
-" nerdtree config
-
-let g:NERDTreeIgnore = ['^node_modules$']
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let g:NERDTreeWinPos = "right"
 
 " ==================================================================================
 " airline config
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'jsformatter'
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
 " ==================================================================================
 " easymotion config
@@ -483,16 +362,7 @@ let g:floaterm_keymap_toggle = '<leader>\'
 let g:floaterm_height = 0.8
 let g:floaterm_width = 0.8
 let g:floaterm_height = 0.8
-
-
-" ==================================================================================
-" textobj config
-let g:vim_textobj_parameter_mapping = 'p'
-xmap n iq
-omap n iq
-
-xmap m ij
-omap m ij
+let g:floaterm_rootmarkers = ['.git', '.gitignore']
 
 " ==================================================================================
 " ctrlsf config
@@ -523,14 +393,6 @@ let g:ctrlsf_mapping = {
 " vim-region
 map <Space> <Plug>(expand_region_expand)
 map <S-S> <Plug>(expand_region_shrink)
-" Use CTRL-S for selections ranges.
-" Requires 'textDocument/selectionRange' support of language server.
-nmap <silent> <cr> <Plug>(coc-range-select)
-xmap <silent> <cr> <Plug>(coc-range-select)
-
-" ==================================================================================
-" vim-root config
-let g:rooter_patterns = ['src', '.git', 'yarn.lock', 'package.json']
 
 " ==================================================================================
 " closetag config
@@ -550,6 +412,151 @@ let g:mta_filetypes = {
     \}
 
 
-" ==================================================================================
-" indent guide config
-let g:indent_guides_enable_on_vim_startup = 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"===================================================================================
+"  coc.nvim config
+
+let g:coc_global_extensions = [
+  \ 'coc-tsserver',
+  \ 'coc-prettier',
+  \ 'coc-json',
+  \ 'coc-css',
+  \ 'coc-cssmodules',
+  \ 'coc-emmet',
+  \ 'coc-highlight',
+  \ 'coc-html',
+  \ 'coc-svg',
+  \ 'coc-tabnine',
+  \ 'coc-snippets',
+  \ 'coc-explorer',
+  \ ]
+
+" 不设置文本编辑失效
+set hidden
+
+" 有些服务会因为backup文件失效
+set nobackup
+set nowritebackup
+
+" 为显示消息展示更多空间
+set cmdheight=2
+
+" 使用更长的updatetime(默认是4000 ms = 4 s)会导致明显的“延迟和糟糕的用户体验”。
+set updatetime=300
+
+" 不要讲消息传递给 ins-completion-menu
+set shortmess+=c
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> <C-i> <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+" 使用K展示预览文档
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" 重命名
+nmap <leader>r <Plug>(coc-rename)
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>a  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>`  <Plug>(coc-fix-current)
+
+" Map function and class text objects
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+" Add `:Fold` command to fold current buffer.
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+" prettier command for coc
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+"  选择区块
+nmap <silent> <cr> <Plug>(coc-range-select)
+xmap <silent> <cr> <Plug>(coc-range-select)
+
+" tab 语法提示
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? coc#_select_confirm() :
+  \ coc#expandableOrJumpable() ?
+  \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" let g:coc_snippet_next = '<tab>'
+
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+				\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+vmap <C-j> <Plug>(coc-snippets-select)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+
+" Explorer
+let g:coc_explorer_global_presets = {
+\   'floating': {
+\      'position': 'floating',
+\   },
+\   'floatingLeftside': {
+\      'position': 'floating',
+\      'floating-position': 'left-center',
+\      'floating-width': 30,
+\   },
+\   'floatingRightside': {
+\      'position': 'floating',
+\      'floating-position': 'right-center',
+\      'floating-width': 30,
+\   },
+\   'simplify': {
+\     'file.child.template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
+\   }
+\ }
