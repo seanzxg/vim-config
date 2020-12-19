@@ -23,13 +23,13 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'voldikss/vim-floaterm'
 
 " 效率工具
-Plug 'easymotion/vim-easymotion'
 Plug 'preservim/nerdcommenter'
 Plug 'kien/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'mbbill/undotree'
 Plug 'terryma/vim-expand-region'
 Plug 'dyng/ctrlsf.vim'
+Plug 'airblade/vim-rooter'
 Plug 'tpope/vim-repeat'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-eunuch'
@@ -163,7 +163,8 @@ set wildignore+=*/.nx/**,*.app
 
 "===================================================================================
 "  vim base config
-set relativenumber
+" set relativenumber
+set norelativenumber
 set smarttab
 set cindent
 " 总是显示状态栏
@@ -180,9 +181,9 @@ set hlsearch
 " 禁止折行
 set nowrap
 " 开启语法高亮功能
-syntax enable
+" syntax enable
 " 允许用指定语法高亮配色方案替换默认方案
-syntax on
+" syntax on
 " 自适应不同语言的智能缩进
 filetype indent on
 " 将制表符扩展为空格
@@ -324,17 +325,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'jsformatter'
 
 " ==================================================================================
-" easymotion config
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-map \ <Plug>(easymotion-bd-w)
-map  f <Plug>(easymotion-bd-f)
-map <Leader>l <Plug>(easymotion-bd-jk)
-
-let g:EasyMotion_smartcase = 1
-let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
-
-" ==================================================================================
 " Fugitive config
 nmap <leader>gb :Gblame<cr>
 nmap <leader>gc :Gcommit<cr>
@@ -412,6 +402,10 @@ let g:mta_filetypes = {
     \}
 
 
+" ==================================================================================
+" vim-root config
+let g:rooter_patterns = ['src', '.git', 'yarn.lock', 'package.json']
+
 
 
 
@@ -445,6 +439,7 @@ let g:coc_global_extensions = [
   \ 'coc-tabnine',
   \ 'coc-snippets',
   \ 'coc-explorer',
+  \ 'coc-smartf',
   \ ]
 
 " 不设置文本编辑失效
@@ -560,3 +555,15 @@ let g:coc_explorer_global_presets = {
 \     'file.child.template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
 \   }
 \ }
+
+" smartf
+" press <esc> to cancel.
+nmap f <Plug>(coc-smartf-forward)
+nmap F <Plug>(coc-smartf-backward)
+nmap ' <Plug>(coc-smartf-repeat)
+nmap " <Plug>(coc-smartf-repeat-opposite)
+
+augroup Smartf
+  autocmd User SmartfEnter :hi Conceal ctermfg=220 guifg=#6638F0
+  autocmd User SmartfLeave :hi Conceal ctermfg=239 guifg=#504945
+augroup end

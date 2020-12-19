@@ -71,6 +71,9 @@
     "typescript.tsx",
     "graphql"
   ],
+  // f快速跳转
+  "smartf.timeout": 3000,
+  "smartf.wordJump": true,
   // 代码提示优先级
   "snippets.priority": 1,
   "suggest.languageSourcePriority": 99,
