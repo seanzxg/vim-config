@@ -32,8 +32,6 @@ ln -s /Users/sean/vim-config/coc-settings.json /Users/sean/.config/nvim/
 ln -s /Users/sean/vim-config/snippets /Users/sean/.config/nvim/
 ```
 
-#### 
-
 ### 支持
 
 ```shell
@@ -69,3 +67,18 @@ command+/   send++
 command+p	send :CtrlP\r
 
 command+.	send ,/
+
+| 匹配 | 键位                   | 描述 |
+| ---- | ---------------------- | ---- |
+| ⌘.   | ,`                     | 修复 |
+| ⌘/   | :Commentary\r          |      |
+| ⌘⇧f  | :CtrlSF                |      |
+| ⌘b   | :CocCommand explorer\r |      |
+| ⌘j   | ,\\                    |      |
+| ⌘p   | :CtrlP\r               |      |
+| ⌘s   | :w\r                   |      |
+
+## 问题：
+
+- [ ] 资源管理器操作
+- [ ] git操作

@@ -2,9 +2,7 @@ call plug#begin()
 
 " 样式
 Plug 'vim-airline/vim-airline'
-Plug 'ryanoasis/vim-devicons'
 Plug 'morhetz/gruvbox'
-" Plug 'Yggdroot/indentLine'
 
 " 研发
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -23,7 +21,6 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'voldikss/vim-floaterm'
 
 " 效率工具
-" Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-commentary'
 Plug 'kien/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'

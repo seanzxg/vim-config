@@ -1,21 +1,4 @@
-" nerdcommenter config
-vmap ++ <plug>NERDCommenterToggle
-nmap ++ <plug>NERDCommenterToggle
-let g:NERDCreateDefaultMappings = 0
-let g:NERDSpaceDelims = 1
-let g:NERDDefaultAlign = 'left'
-let g:NERDCommentEmptyLines = 1
-
 " vim-commentary
-" function! Comment()
-"   if (mode() == "n" )
-"     execute "Commentary"
-"   else    
-"     execute "'<,'>Commentary"
-"   endif
-"  endfunction
-" vnoremap <silent> <leader>/ :call Comment()
-
 
 " ctrlp config
 let g:ctrlp_map = ''
@@ -219,24 +202,13 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 vmap <C-j> <Plug>(coc-snippets-select)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 " Explorer
-let g:coc_explorer_global_presets = {
-\   'floating': {
-\      'position': 'floating',
-\   },
-\   'floatingLeftside': {
-\      'position': 'floating',
-\      'floating-position': 'left-center',
-\      'floating-width': 30,
-\   },
-\   'floatingRightside': {
-\      'position': 'floating',
-\      'floating-position': 'right-center',
-\      'floating-width': 30,
-\   },
-\   'simplify': {
-\     'file.child.template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
-\   }
-\ }
+
+autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
+augroup MyCocExplorer
+  autocmd!
+  autocmd VimEnter * sil! au! FileExplorer *
+  autocmd BufEnter * let d = expand('%') | if isdirectory(d) | bd | exe 'CocCommand explorer ' . d | endif
+augroup END
 
 " smartf
 " press <esc> to cancel.
@@ -259,9 +231,8 @@ let g:startify_change_to_vcs_root = 1
 let g:startify_fortune_use_unicode = 1
 let g:startify_session_persistence = 1
 let g:webdevicons_enable_startify = 1
-function! StartifyEntryFormat()
-        return 'WebDevIconsGetFileTypeSymbol(absolute_path) ."". entry_path'
-    endfunction
+" function! StartifyEntryFormat()
+"         return 'WebDevIconsGetFileTypeSymbol(absolute_path) ."". entry_path'
+"     endfunction
 let g:startify_enable_special = 0
-
 
