@@ -122,6 +122,7 @@ let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-explorer',
   \ 'coc-smartf',
+  \ 'coc-pairs',
   \ ]
 
 " 不设置文本编辑失效

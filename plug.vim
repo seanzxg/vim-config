@@ -31,7 +31,7 @@ Plug 'airblade/vim-rooter'
 Plug 'tpope/vim-repeat'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-eunuch'
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
 
 " Start Screen
 Plug 'mhinz/vim-startify'
