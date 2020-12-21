@@ -109,6 +109,9 @@ let g:startify_commands = [
         \ ':help',
         \ ]
 let g:startify_bookmarks = [
+            \ { 'ds': '~/work/kuaishou-frontend-ad-alliance-promoter' },
+            \ { 'ad': '~/work/kuaishou-frontend-ad-ssp' },
+            \ { 'op': '~/work/kuaishou-frontend-ad-ssp-operation' },
             \ { 'c': '~/.config/nvim/init.vim' },
             \ { 'z': '~/.zshrc' },
             \ ]
@@ -129,3 +132,20 @@ let g:startify_custom_footer =
            \"    v:  open in vertical split",
            \"    t:  open in tab",
            \ '']
+
+
+" macvim
+let macvim_skip_colorscheme=1
+set bg=dark                     "设置背景为黑色
+colorscheme gruvbox             "设置主题为 gruvbox
+set guioptions=                 "去掉两边的scrollbar
+set guifont=Hack\ Nerd\ Font:h14         "设置字体和字的大小
+
+" vim insert光标处理
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+set ttimeout
+set ttimeoutlen=1
+set listchars=tab:>-,trail:~,extends:>,precedes:<,space:.
+set ttyfast

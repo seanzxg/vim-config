@@ -19,7 +19,7 @@ set nowrap
 " 开启语法高亮功能
 " syntax enable
 " 允许用指定语法高亮配色方案替换默认方案
-" syntax on
+syntax on
 " 自适应不同语言的智能缩进
 filetype indent on
 " 将制表符扩展为空格

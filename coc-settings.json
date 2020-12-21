@@ -74,8 +74,8 @@
     "javascript": "javascriptreact",
     "typescript": "typescriptreact"
   },
-  "emmet.showExpandedAbbreviation": "never",
-  "emmet.showAbbreviationSuggestions": false,
+  // "emmet.showExpandedAbbreviation": "never",
+  // "emmet.showAbbreviationSuggestions": true,
   "emmet.optimizeStylesheetParsing": false,
   //自动格式
   "coc.preferences.formatOnSaveFiletypes": [
@@ -91,7 +91,7 @@
     "graphql"
   ],
   // f快速跳转
-  "smartf.timeout": 3000,
+  "smartf.timeout": 2500,
   "smartf.wordJump": true,
   // 代码提示优先级
   "snippets.priority": 1,
@@ -105,4 +105,6 @@
   "diagnostic.warningSign": " ",
   "diagnostic.infoSign": "",
   "diagnostic.hintSign": " "
+  // 修复在macvim上的报错
+  // "npm.binPath": "/Users/sean/.nvm/versions/node/v12.16.2/bin/npm"
 }
