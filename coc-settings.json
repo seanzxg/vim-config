@@ -28,6 +28,12 @@
     "typeParameter": "\uf728",
     "default": "\uf29c"
   },
+
+  // worthless sources when language-server is present
+  // "coc.source.buffer.enable": false,
+  // "coc.source.file.enable": false,
+  // "coc.source.around.enable": false,
+
   // list
   "list.insertMappings": {
     "<C-n>": "<Down>",
@@ -74,8 +80,6 @@
     "javascript": "javascriptreact",
     "typescript": "typescriptreact"
   },
-  // "emmet.showExpandedAbbreviation": "never",
-  // "emmet.showAbbreviationSuggestions": true,
   "emmet.optimizeStylesheetParsing": false,
   //自动格式
   "coc.preferences.formatOnSaveFiletypes": [
@@ -95,16 +99,13 @@
   "smartf.wordJump": true,
   // 代码提示优先级
   "snippets.priority": 1,
-  "emmet.priority": 6,
+  "emmet.priority": 3,
   "suggest.languageSourcePriority": 2,
-  "coc.source.around.priority": 3,
-  "coc.source.buffer.priority": 4,
-  "coc.source.file.priority": 5,
   // 代码报错提示
   "diagnostic.errorSign": " ",
   "diagnostic.warningSign": " ",
   "diagnostic.infoSign": "",
-  "diagnostic.hintSign": " "
+  "diagnostic.hintSign": " ",
   // 修复在macvim上的报错
-  // "npm.binPath": "/Users/sean/.nvm/versions/node/v12.16.2/bin/npm"
+  "npm.binPath": "~/.nvm/versions/node/v12.16.2/bin/npm"
 }

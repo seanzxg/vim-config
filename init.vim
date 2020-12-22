@@ -87,7 +87,7 @@ nmap <leader>ss :split<cr>
 
 " Map Ctrl+V to paste in Insert mode
 imap <C-V> <C-R>*
-nmap <leader>p "+p
+nmap <leader>v "+gP
 " Map Ctrl+C to copy in Visual mode
 vmap <C-C> "+y
 
@@ -149,3 +149,7 @@ set ttimeout
 set ttimeoutlen=1
 set listchars=tab:>-,trail:~,extends:>,precedes:<,space:.
 set ttyfast
+
+" macvim 设置node path
+" let g:coc_node_path = trim(system('which node'))
+let g:coc_node_path = '~/.nvm/versions/node/v12.16.2/bin//node'

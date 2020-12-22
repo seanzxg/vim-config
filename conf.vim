@@ -49,11 +49,13 @@ let g:undotree_WindowLayout = 3
 
 " floaterm config
 let g:floaterm_keymap_toggle = '<leader>\'
-let g:floaterm_height = 0.8
-let g:floaterm_width = 0.8
-let g:floaterm_height = 0.8
+" let g:floaterm_keymap_toggle = '<F1>'
+" let g:floaterm_width = 0.8
+let g:floaterm_height = 0.4
 let g:floaterm_rootmarkers = ['.git', '.gitignore']
 let g:floaterm_autoclose = 2
+let g:floaterm_wintype="normal"
+let g:floaterm_position='bottom'
 
 " ctrlsf config
 let g:ctrlsf_auto_focus = {
@@ -136,8 +138,7 @@ set cmdheight=2
 set updatetime=300
 " 不要讲消息传递给 ins-completion-menu
 set shortmess+=c
-" 设置node path
-" let g:coc_node_path = '/Users/sean/.nvm/versions/node/v12.16.2/bin/node'
+
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
