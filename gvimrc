@@ -1,5 +1,3 @@
-
-
 macm File.New\ Window				key=<nop>
 macm File.New\ Tab				key=<nop>
 macm File.Open…				key=<nop>
@@ -43,5 +41,9 @@ macm Window.Show\ Previous\ Tab		key=<nop>
 
 macm Help.MacVim\ Help			key=<nop>
 
-nmap <D-p> :CtrlP<CR>
-nmap <D-b> :CocCommand explorer<CR>
+map <D-p> :CtrlP<CR>
+map <D-b> :CocCommand explorer<CR>
+map <D-/> :Commentary<CR>
+map <D-.> ,`
+map <D-j> <C-W>:FloatermToggle<CR>
+map <D-f> :CtrlSF 

@@ -27,6 +27,7 @@ echo "alias vi=nvim" >> ~/.zshrc
 cd ~
 git clone git@github.com:seanzxg/vim-config.git
 ln -s /Users/sean/vim-config/init.vim /Users/sean/.vimrc
+ln -s /Users/sean/vim-config/gvimrc /Users/sean/.gvimrc
 ln -s /Users/sean/vim-config/init.vim /Users/sean/.config/nvim/init.vim
 ln -s /Users/sean/vim-config/coc-settings.json /Users/sean/.config/nvim/
 ln -s /Users/sean/vim-config/snippets /Users/sean/.config/nvim/
