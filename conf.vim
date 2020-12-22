@@ -10,18 +10,6 @@ let g:ctrlp_prompt_mappings = {
   \ 'PrtSelectMove("k")':   ['<c-p>', '<up>'],
   \ }
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:10'
-function! SetupCtrlP()
-  if exists("g:loaded_ctrlp") && g:loaded_ctrlp
-    augroup CtrlPExtension
-      autocmd!
-      autocmd FocusGained  * CtrlPClearCache
-      autocmd BufWritePost * CtrlPClearCache
-    augroup END
-  endif
-endfunction
-if has("autocmd")
-  autocmd VimEnter * :call SetupCtrlP()
-endif
 
 " airline config
 let g:airline#extensions#tabline#enabled = 1
@@ -50,7 +38,7 @@ let g:undotree_WindowLayout = 3
 " floaterm config
 let g:floaterm_keymap_toggle = '<leader>\'
 " let g:floaterm_keymap_toggle = '<F1>'
-" let g:floaterm_width = 0.8
+" let g:floaterm_width = 200
 let g:floaterm_height = 0.4
 let g:floaterm_rootmarkers = ['.git', '.gitignore']
 let g:floaterm_autoclose = 2
@@ -123,8 +111,8 @@ let g:coc_global_extensions = [
   \ 'coc-tabnine',
   \ 'coc-snippets',
   \ 'coc-explorer',
-  \ 'coc-smartf',
   \ 'coc-pairs',
+  \ 'coc-floaterm',
   \ ]
 
 " 不设置文本编辑失效
@@ -215,19 +203,15 @@ augroup MyCocExplorer
   autocmd BufEnter * let d = expand('%') | if isdirectory(d) | bd | exe 'CocCommand explorer ' . d | endif
 augroup END
 
-" smartf
-" press <esc> to cancel.
-nmap f <Plug>(coc-smartf-forward)
-nmap F <Plug>(coc-smartf-backward)
-nmap ' <Plug>(coc-smartf-repeat)
-nmap " <Plug>(coc-smartf-repeat-opposite)
+" easymotion config
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map \ <Plug>(easymotion-bd-w)
+map  f <Plug>(easymotion-bd-f)
+map <Leader>l <Plug>(easymotion-bd-jk)
 
-augroup Smartf
-  autocmd User SmartfEnter :hi Conceal ctermfg=220 guifg=#6638F0
-  autocmd User SmartfLeave :hi Conceal ctermfg=239 guifg=#504945
-augroup end
-
-
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
 
 " startify
 let g:startify_session_autoload = 1

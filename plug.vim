@@ -5,8 +5,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'morhetz/gruvbox'
 
 " 研发
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'yarn install --frozen-lockfile' }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -22,6 +22,7 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'voldikss/vim-floaterm'
 
 " 效率工具
+Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-commentary'
 Plug 'kien/ctrlp.vim'
 " Plug 'tacahiroy/ctrlp-funky'

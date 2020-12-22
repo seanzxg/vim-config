@@ -1,15 +1,15 @@
 let mapleader=","
 
 if filereadable(expand("~/vim-config/basic.vim"))
-  source ~/vim-config/basic.vim 
+  source ~/vim-config/basic.vim
 endif
 
 if filereadable(expand("~/vim-config/plug.vim"))
-  source ~/vim-config/plug.vim 
+  source ~/vim-config/plug.vim
 endif
 
 if filereadable(expand("~/vim-config/conf.vim"))
-  source ~/vim-config/conf.vim 
+  source ~/vim-config/conf.vim
 endif
 
 " ==================================================================================
@@ -124,7 +124,7 @@ let g:startify_lists = [
           \ { 'type': 'commands',  'header': ['   Commands']       },
           \ ]
 let g:startify_custom_footer =
-           \ ['', "    welcome to home. remember keys", 
+           \ ['', "    welcome to home. remember keys",
            \"    e:  creates an empty buffer",
            \"    i:  creates an empty buffer and jumps into insert mode",
            \"    q:  quits either the buffer or, if there is no other listed buffer left, Vim itself.",
@@ -152,4 +152,34 @@ set ttyfast
 
 " macvim 设置node path
 " let g:coc_node_path = trim(system('which node'))
-let g:coc_node_path = '~/.nvm/versions/node/v12.16.2/bin//node'
+" let g:coc_node_path = '~/.nvm/versions/node/v12.16.2/bin//node'
+
+" easymotion conflict with coc.nvim dia this is a deal
+" https://github.com/neoclide/coc.nvim/issues/110
+let g:easymotion#is_active = 0
+function! EasyMotionCoc() abort
+  if EasyMotion#is_active()
+    let g:easymotion#is_active = 1
+    CocDisable
+  else
+    if g:easymotion#is_active == 1
+      let g:easymotion#is_active = 0
+      CocEnable
+    endif
+  endif
+endfunction
+autocmd TextChanged,CursorMoved * call EasyMotionCoc()
+
+if !has("nvim")
+set termwinkey=<C-l>
+tnoremap  < Esc >  < C - \ > < C - n >
+" 解决vim/macvim下 命令行缓存问题
+" https://www.reddit.com/r/vim/comments/fwedfx/ignore_e947_job_still_running_in_buffer_bash_when/
+autocmd QuitPre * call <sid>TermForceCloseAll()
+function! s:TermForceCloseAll() abort
+    let term_bufs = filter(range(1, bufnr('$')), 'getbufvar(v:val, "&buftype") == "terminal"')
+    for t in term_bufs
+            execute "bd! " t
+    endfor
+endfunction
+endif
