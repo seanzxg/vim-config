@@ -112,7 +112,6 @@ let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-explorer',
   \ 'coc-pairs',
-  \ 'coc-floaterm',
   \ ]
 
 " 不设置文本编辑失效

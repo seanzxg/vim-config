@@ -141,14 +141,6 @@ colorscheme gruvbox             "设置主题为 gruvbox
 set guioptions=                 "去掉两边的scrollbar
 set guifont=Hack\ Nerd\ Font:h14         "设置字体和字的大小
 
-" vim insert光标处理
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-set ttimeout
-set ttimeoutlen=1
-set listchars=tab:>-,trail:~,extends:>,precedes:<,space:.
-set ttyfast
 
 " macvim 设置node path
 " let g:coc_node_path = trim(system('which node'))
@@ -171,6 +163,15 @@ endfunction
 autocmd TextChanged,CursorMoved * call EasyMotionCoc()
 
 if !has("nvim")
+" vim insert光标处理
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+set ttimeout
+set ttimeoutlen=1
+set listchars=tab:>-,trail:~,extends:>,precedes:<,space:.
+set ttyfast
+" vim 处理命令按键的方式
 set termwinkey=<C-l>
 tnoremap  < Esc >  < C - \ > < C - n >
 " 解决vim/macvim下 命令行缓存问题
