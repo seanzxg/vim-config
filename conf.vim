@@ -112,6 +112,7 @@ let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-explorer',
   \ 'coc-pairs',
+  \ 'coc-smartf',
   \ ]
 
 " 不设置文本编辑失效
@@ -202,15 +203,28 @@ augroup MyCocExplorer
   autocmd BufEnter * let d = expand('%') | if isdirectory(d) | bd | exe 'CocCommand explorer ' . d | endif
 augroup END
 
-" easymotion config
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-map \ <Plug>(easymotion-bd-w)
-map  f <Plug>(easymotion-bd-f)
-map <Leader>l <Plug>(easymotion-bd-jk)
+if has("nvim")
+"smartf
+  nmap f <Plug>(coc-smartf-forward)
+  nmap F <Plug>(coc-smartf-backward)
+  nmap ; <Plug>(coc-smartf-repeat)
+  nmap , <Plug>(coc-smartf-repeat-opposite)
 
-let g:EasyMotion_smartcase = 1
-let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
+  augroup Smartf
+    autocmd User SmartfEnter :hi Conceal ctermfg=220 guifg=#6638F0
+    autocmd User SmartfLeave :hi Conceal ctermfg=239 guifg=#504945
+  augroup end
+endif
+
+" " easymotion config
+" map  / <Plug>(easymotion-sn)
+" omap / <Plug>(easymotion-tn)
+" map \ <Plug>(easymotion-bd-w)
+" map  f <Plug>(easymotion-bd-f)
+" map <Leader>l <Plug>(easymotion-bd-jk)
+
+" let g:EasyMotion_smartcase = 1
+" let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
 
 " startify
 let g:startify_session_autoload = 1
@@ -224,3 +238,6 @@ let g:webdevicons_enable_startify = 1
 "     endfunction
 let g:startify_enable_special = 0
 
+" comfortable 
+let g:comfortable_motion_friction = 80.0
+let g:comfortable_motion_air_drag = 2.0

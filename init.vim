@@ -112,7 +112,7 @@ let g:startify_bookmarks = [
             \ { 'ds': '~/work/kuaishou-frontend-ad-alliance-promoter' },
             \ { 'ad': '~/work/kuaishou-frontend-ad-ssp' },
             \ { 'op': '~/work/kuaishou-frontend-ad-ssp-operation' },
-            \ { 'c': '~/.config/nvim/init.vim' },
+            \ { 'c': '~/vim-config/init.vim' },
             \ { 'z': '~/.zshrc' },
             \ ]
 let g:startify_session_dir = '~/.config/nvim/session'
@@ -124,7 +124,7 @@ let g:startify_lists = [
           \ { 'type': 'commands',  'header': ['   Commands']       },
           \ ]
 let g:startify_custom_footer =
-           \ ['', "    welcome to home. remember keys",
+           \ ['', "    welcome to sean home. remember keys",
            \"    e:  creates an empty buffer",
            \"    i:  creates an empty buffer and jumps into insert mode",
            \"    q:  quits either the buffer or, if there is no other listed buffer left, Vim itself.",
@@ -148,19 +148,19 @@ set guifont=Hack\ Nerd\ Font:h14         "设置字体和字的大小
 
 " easymotion conflict with coc.nvim dia this is a deal
 " https://github.com/neoclide/coc.nvim/issues/110
-let g:easymotion#is_active = 0
-function! EasyMotionCoc() abort
-  if EasyMotion#is_active()
-    let g:easymotion#is_active = 1
-    CocDisable
-  else
-    if g:easymotion#is_active == 1
-      let g:easymotion#is_active = 0
-      CocEnable
-    endif
-  endif
-endfunction
-autocmd TextChanged,CursorMoved * call EasyMotionCoc()
+" let g:easymotion#is_active = 0
+" function! EasyMotionCoc() abort
+"   if EasyMotion#is_active()
+"     let g:easymotion#is_active = 1
+"     CocDisable
+"   else
+"     if g:easymotion#is_active == 1
+"       let g:easymotion#is_active = 0
+"       CocEnable
+"     endif
+"   endif
+" endfunction
+" autocmd TextChanged,CursorMoved * call EasyMotionCoc()
 
 if !has("nvim")
 " vim insert光标处理

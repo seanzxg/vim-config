@@ -17,12 +17,11 @@ Plug 'valloric/matchtagalways'
 Plug 'andrewradev/tagalong.vim'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'maxmellon/vim-jsx-pretty'
-
 " terminal
 Plug 'voldikss/vim-floaterm'
 
 " 效率工具
-Plug 'easymotion/vim-easymotion'
+" Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-commentary'
 Plug 'kien/ctrlp.vim'
 " Plug 'tacahiroy/ctrlp-funky'
@@ -34,10 +33,11 @@ Plug 'tpope/vim-repeat'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-eunuch'
 " Plug 'jiangmiao/auto-pairs'
+Plug 'yuttie/comfortable-motion.vim'
+
 
 " Start Screen
 Plug 'mhinz/vim-startify'
-
 " 基础支持
 Plug 'vim-china/vimdoc-cn'
 Plug 'kana/vim-textobj-user'

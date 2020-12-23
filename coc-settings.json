@@ -30,9 +30,9 @@
   },
 
   // worthless sources when language-server is present
-  // "coc.source.buffer.enable": false,
-  // "coc.source.file.enable": false,
-  // "coc.source.around.enable": false,
+  "coc.source.buffer.enable": true,
+  "coc.source.file.enable": false,
+  "coc.source.around.enable": true,
 
   // list
   "list.insertMappings": {
@@ -45,8 +45,8 @@
   "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/snippets"],
   "snippets.extends": {
     "javascriptreact": ["javascript"],
-    "typescriptreact": ["javascript"],
-    "typescript": ["javascript"]
+    "typescriptreact": ["typescript"]
+    // "typescript": ["javascript"]
   },
   // explorer
   "explorer.width": 60,
@@ -94,13 +94,8 @@
     "typescript.tsx",
     "graphql"
   ],
-  // f快速跳转
-  "smartf.timeout": 2500,
-  "smartf.wordJump": true,
   // 代码提示优先级
-  "snippets.priority": 1,
-  "emmet.priority": 3,
-  "suggest.languageSourcePriority": 2,
+  "snippets.priority": 99,
   // 代码报错提示
   "diagnostic.errorSign": " ",
   "diagnostic.warningSign": " ",
@@ -108,4 +103,7 @@
   "diagnostic.hintSign": " ",
   // 修复在macvim上的报错
   // "npm.binPath": "~/.nvm/versions/node/v12.16.2/bin/npm"
+  // smartf
+  "smartf.timeout": 2500,
+  "smartf.wordJump": false
 }
