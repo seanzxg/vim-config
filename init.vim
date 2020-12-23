@@ -112,6 +112,7 @@ let g:startify_bookmarks = [
             \ { 'ds': '~/work/kuaishou-frontend-ad-alliance-promoter' },
             \ { 'ad': '~/work/kuaishou-frontend-ad-ssp' },
             \ { 'op': '~/work/kuaishou-frontend-ad-ssp-operation' },
+            \ { 'ui': '~/work/r-ui' },
             \ { 'c': '~/vim-config/init.vim' },
             \ { 'z': '~/.zshrc' },
             \ ]
@@ -142,25 +143,7 @@ set guioptions=                 "去掉两边的scrollbar
 set guifont=Hack\ Nerd\ Font:h14         "设置字体和字的大小
 
 
-" macvim 设置node path
-" let g:coc_node_path = trim(system('which node'))
-" let g:coc_node_path = '~/.nvm/versions/node/v12.16.2/bin//node'
 
-" easymotion conflict with coc.nvim dia this is a deal
-" https://github.com/neoclide/coc.nvim/issues/110
-" let g:easymotion#is_active = 0
-" function! EasyMotionCoc() abort
-"   if EasyMotion#is_active()
-"     let g:easymotion#is_active = 1
-"     CocDisable
-"   else
-"     if g:easymotion#is_active == 1
-"       let g:easymotion#is_active = 0
-"       CocEnable
-"     endif
-"   endif
-" endfunction
-" autocmd TextChanged,CursorMoved * call EasyMotionCoc()
 
 if !has("nvim")
 " vim insert光标处理
@@ -183,4 +166,29 @@ function! s:TermForceCloseAll() abort
             execute "bd! " t
     endfor
 endfunction
+" easymotion conflict with coc.nvim dia this is a deal
+" https://github.com/neoclide/coc.nvim/issues/110
+let g:easymotion#is_active = 0
+function! EasyMotionCoc() abort
+  if EasyMotion#is_active()
+    let g:easymotion#is_active = 1
+    CocDisable
+  else
+    if g:easymotion#is_active == 1
+      let g:easymotion#is_active = 0
+      CocEnable
+    endif
+  endif
+endfunction
+autocmd TextChanged,CursorMoved * call EasyMotionCoc()
+
+" macvim 设置node path
+let g:coc_node_path = '/Users/sean/.nvm/versions/node/v12.16.2/bin//node'
+endif
+
+if has('gui_macvim')
+  " let macvim_skip_cmd_opt_movement = 1
+  " set mouse=
+  " let g:floaterm_keymap_toggle = '<D-j>'
+  " nmap <D-i>  <Plug>(coc-fix-current)
 endif

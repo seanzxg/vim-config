@@ -21,10 +21,8 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'voldikss/vim-floaterm'
 
 " 效率工具
-" Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-commentary'
 Plug 'kien/ctrlp.vim'
-" Plug 'tacahiroy/ctrlp-funky'
 Plug 'mbbill/undotree'
 Plug 'terryma/vim-expand-region'
 Plug 'dyng/ctrlsf.vim'
@@ -32,9 +30,11 @@ Plug 'airblade/vim-rooter'
 Plug 'tpope/vim-repeat'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-eunuch'
-" Plug 'jiangmiao/auto-pairs'
 Plug 'yuttie/comfortable-motion.vim'
 
+if !has('nvim')
+Plug 'easymotion/vim-easymotion'
+endif
 
 " Start Screen
 Plug 'mhinz/vim-startify'

@@ -41,9 +41,16 @@ macm Window.Toggle\ Full\ Screen\ Mode	key=<nop>
 
 macm Help.MacVim\ Help			key=<nop>
 
-map <D-p> :CtrlP<CR>
-map <D-b> :CocCommand explorer<CR>
-map <D-/> :Commentary<CR>
-map <D-.> ,`
-map <D-j> <C-W>:FloatermToggle<CR>
-map <D-f> :CtrlSF 
+
+let macvim_skip_cmd_opt_movement = 1
+set mouse=
+let g:floaterm_keymap_toggle = '<D-j>'
+nmap <D-i>  <Plug>(coc-fix-current)
+
+nmap <D-f> :CtrlSF 
+imap <D-f> <esc>:CtrlSF 
+
+nmap <D-/> :Commentary<CR>
+imap <D-/> <esc>:Commentary<CR>
+map <D-p> <esc>:CtrlP<CR>
+map <D-b> <esc>:CocCommand explorer<CR>

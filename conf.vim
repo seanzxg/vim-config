@@ -209,22 +209,20 @@ if has("nvim")
   nmap F <Plug>(coc-smartf-backward)
   nmap ; <Plug>(coc-smartf-repeat)
   nmap , <Plug>(coc-smartf-repeat-opposite)
-
   augroup Smartf
     autocmd User SmartfEnter :hi Conceal ctermfg=220 guifg=#6638F0
     autocmd User SmartfLeave :hi Conceal ctermfg=239 guifg=#504945
   augroup end
+else  
+  " easymotion config
+  map  / <Plug>(easymotion-sn)
+  omap / <Plug>(easymotion-tn)
+  map \ <Plug>(easymotion-bd-w)
+  map  f <Plug>(easymotion-overwin-f)
+  map <Leader>l <Plug>(easymotion-bd-jk)
+  let g:EasyMotion_smartcase = 1
+  let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
 endif
-
-" " easymotion config
-" map  / <Plug>(easymotion-sn)
-" omap / <Plug>(easymotion-tn)
-" map \ <Plug>(easymotion-bd-w)
-" map  f <Plug>(easymotion-bd-f)
-" map <Leader>l <Plug>(easymotion-bd-jk)
-
-" let g:EasyMotion_smartcase = 1
-" let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
 
 " startify
 let g:startify_session_autoload = 1

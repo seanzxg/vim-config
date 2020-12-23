@@ -102,7 +102,7 @@
   "diagnostic.infoSign": "",
   "diagnostic.hintSign": " ",
   // 修复在macvim上的报错
-  // "npm.binPath": "~/.nvm/versions/node/v12.16.2/bin/npm"
+  "npm.binPath": "/Users/sean/.nvm/versions/node/v12.16.2/bin/npm",
   // smartf
   "smartf.timeout": 2500,
   "smartf.wordJump": false
