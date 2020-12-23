@@ -101,11 +101,10 @@ set foldlevel=20
 " 重新打开文件,回到上次鼠标悬停的位置
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif 
+endif
 
 " 自动改变当前项目的目录
 autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
-
 
 " Ignore some defaults
 " set wildignore=*.o,*.obj,*~,*.pyc
