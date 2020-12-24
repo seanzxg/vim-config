@@ -95,6 +95,8 @@
   ],
   // 代码提示优先级
   "snippets.priority": 99,
+  "emmet.priority": 90,
+  "suggest.languageSourcePriority": 95,
   // 代码报错提示
   "diagnostic.errorSign": " ",
   "diagnostic.warningSign": " ",

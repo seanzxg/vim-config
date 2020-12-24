@@ -6,7 +6,7 @@ set cindent
 " 总是显示状态栏
 set laststatus=2
 " 显示光标当前位置
-set ruler
+" set ruler
 " 开启行号显示
 set number
 " 高亮显示当前行/列
@@ -18,8 +18,6 @@ set hlsearch
 set nowrap
 " 开启语法高亮功能
 " syntax enable
-" 允许用指定语法高亮配色方案替换默认方案
-syntax on
 " 自适应不同语言的智能缩进
 filetype indent on
 " 将制表符扩展为空格
@@ -51,6 +49,7 @@ set nocompatible
 set history=100
 " 允许删除tab，line，超出start的插入
 set backspace=indent,eol,start
+" set backspace=2
 " Show the current command at the bottom
 set showcmd
 " Disable beeping and flashing.
@@ -96,34 +95,88 @@ set nofoldenable
 " Indent seems to work the best
 set foldmethod=indent
 set foldlevel=20
+" coc 不设置文本编辑失效
+set hidden
+" 有些服务会因为backup文件失效
+set nobackup
+set nowritebackup
+" 为显示消息展示更多空间
+set cmdheight=2
+" 使用更长的updatetime(默认是4000 ms = 4 s)会导致明显的“延迟和糟糕的用户体验”。
+set updatetime=300
+" 不要讲消息传递给 ins-completion-menu
+set shortmess+=c
 
-" :set autochdir
-" 重新打开文件,回到上次鼠标悬停的位置
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+if !has('nvim')
+  set notagbsearch
+endif
+set termguicolors
+set pumheight=15
+set wildmenu
+set signcolumn=yes
+set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
+set autowrite
+set mouse=h
+set novisualbell
+if exists('&tagfunc')
+  set tagfunc=CocTagFunc
 endif
 
-" 自动改变当前项目的目录
-autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
+set belloff=all
+set noimdisable
+set noswapfile
+set fileformats=unix,dos
+set formatoptions+=j
+set formatoptions+=o
+set diffopt
+set path+=**
+set tags+=gems.tags,stdlib.tags
+set showbreak=↪ 
+set shortmess=aFc
+set cmdheight=2
+set sessionoptions+=winsize
+set sessionoptions+=resize
+set sessionoptions-=blank
+set sessionoptions+=localoptions
+set sessionoptions+=globals
+set viewoptions=cursor,folds,slash,unix
+set ttimeout
+set ttimeoutlen=100
+set tabpagemax=10
+set scrolloff=3
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
+set wildignore+=*.so,*~,*/.git/*,*/.svn/*,*/.DS_Store,*/tmp/*
+set keywordprg=
+set showtabline=2
+set noshowmode
+set synmaxcol=300
+" Formatting
+set smartcase
+set shiftround
+set autoindent
+set wrap
+set guioptions-=r
+set grepprg=rg\ --vimgrep\ $*
+set grepformat=%f:%l:%c:%m
+set title
+set wildignorecase
+set noruler
+if has('gui_running')
+  let macvim_skip_colorscheme=1
+  set bg=dark                     "设置背景为黑色
+  colorscheme gruvbox             "设置主题为 gruvbox
+  set guioptions=                 "去掉两边的scrollbar
+  set guifont=Hack\ Nerd\ Font:h14         "设置字体和字的大小
+  set transparency=10
+  set macmeta
+  set antialias
+else
+  set background=dark
+  let g:gruvbox_bold=0
+  let g:gruvbox_invert_selection=0
+  colorscheme gruvbox
+endif
+set complete+=k
+set complete-=t
+set completeopt=menu,preview
 
-" Ignore some defaults
-" set wildignore=*.o,*.obj,*~,*.pyc
-" set wildignore+=.env
-" set wildignore+=.env[0-9]+
-" set wildignore+=.git,.gitkeep
-" set wildignore+=.tmp
-" set wildignore+=.coverage
-" set wildignore+=*DS_Store*
-" set wildignore+=.sass-cache/
-" set wildignore+=__pycache__/
-" set wildignore+=vendor/rails/**
-" set wildignore+=vendor/cache/**
-" set wildignore+=*.gem
-" set wildignore+=log/**
-" set wildignore+=tmp/**
-" set wildignore+=.tox/**
-" set wildignore+=.idea/**
-" set wildignore+=*.egg,*.egg-info
-" set wildignore+=*.png,*.jpg,*.gif
-" set wildignore+=*.so,*.swp,*.zip,*/.Trash/**,*.pdf,*.dmg,*/Library/**,*/.rbenv/**
-" set wildignore+=*/.nx/**,*.app

@@ -1,54 +1,3 @@
-call plug#begin()
-
-" 样式
-Plug 'vim-airline/vim-airline'
-Plug 'morhetz/gruvbox'
-
-" 研发
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'yarn install --frozen-lockfile' }
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'cristianoliveira/vim-react-html-snippets'
-Plug 'honza/vim-snippets'
-Plug 'alvan/vim-closetag'
-Plug 'valloric/matchtagalways'
-Plug 'andrewradev/tagalong.vim'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'maxmellon/vim-jsx-pretty'
-
-" terminal
-Plug 'voldikss/vim-floaterm'
-
-" 效率工具
-Plug 'tpope/vim-commentary'
-Plug 'kien/ctrlp.vim'
-" Plug 'tacahiroy/ctrlp-funky'
-Plug 'mbbill/undotree'
-Plug 'terryma/vim-expand-region'
-Plug 'dyng/ctrlsf.vim'
-Plug 'airblade/vim-rooter'
-Plug 'tpope/vim-repeat'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'tpope/vim-eunuch'
-Plug 'yuttie/comfortable-motion.vim'
-
-
-" Start Screen
-Plug 'mhinz/vim-startify'
-" 基础支持
-Plug 'vim-china/vimdoc-cn'
-Plug 'kana/vim-textobj-user'
-" e
-Plug 'kana/vim-textobj-entire'
-" l
-Plug 'kana/vim-textobj-line'
-" x
-Plug 'whatyouhide/vim-textobj-xmlattr'
-
-call plug#end()
-
 " ctrlp config
 let g:ctrlp_map = ''
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
@@ -64,28 +13,12 @@ let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:10'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'jsformatter'
 
-" Fugitive config
-nmap <leader>gb :Gblame<cr>
-nmap <leader>gc :Gcommit<cr>
-nmap <leader>gd :Gdiff<cr>
-nmap <leader>gg :Ggrep
-nmap <leader>gh :Glog<cr>
-nmap <leader>gl :Git pull<cr>
-nmap <leader>gp :Git push<cr>
-nmap <leader>gs :Gstatus<cr>
-nmap <leader>gw :Gbrowse<cr>
-nmap <leader>g? :map <leader>g<cr>
-
-
-" undotree config
-nmap <leader>u :UndotreeToggle<cr>
 " Undotree settings
 let g:undotree_SplitWidth = 60
 let g:undotree_WindowLayout = 3
 
 
 " floaterm config
-let g:floaterm_keymap_toggle = '<leader>\'
 " let g:floaterm_keymap_toggle = '<F1>'
 " let g:floaterm_width = 200
 let g:floaterm_height = 0.4
@@ -164,57 +97,9 @@ let g:coc_global_extensions = [
   \ 'coc-smartf',
   \ ]
 
-" 不设置文本编辑失效
-set hidden
-" 有些服务会因为backup文件失效
-set nobackup
-set nowritebackup
-" 为显示消息展示更多空间
-set cmdheight=2
-" 使用更长的updatetime(默认是4000 ms = 4 s)会导致明显的“延迟和糟糕的用户体验”。
-set updatetime=300
-" 不要讲消息传递给 ins-completion-menu
-set shortmess+=c
 
-" Use `[g` and `]g` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-" GoTo code navigation.
-nmap <silent> <C-i> <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-" Use K to show documentation in preview window.
-" 使用K展示预览文档
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-" 重命名
-nmap <leader>r <Plug>(coc-rename)
-" Remap keys for applying codeAction to the current buffer.
-nmap <leader>a  <Plug>(coc-codeaction)
-" Apply AutoFix to problem on the current line.
-nmap <leader>`  <Plug>(coc-fix-current)
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-xmap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap af <Plug>(coc-funcobj-a)
-xmap ic <Plug>(coc-classobj-i)
-omap ic <Plug>(coc-classobj-i)
-xmap ac <Plug>(coc-classobj-a)
-omap ac <Plug>(coc-classobj-a)
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
 " Add `:Fold` command to fold current buffer.
@@ -223,44 +108,6 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 " prettier command for coc
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-"  选择区块
-nmap <silent> <cr> <Plug>(coc-range-select)
-xmap <silent> <cr> <Plug>(coc-range-select)
-" tab 语法提示
-inoremap <silent><expr> <TAB>
-  \ pumvisible() ? coc#_select_confirm() :
-  \ coc#expandableOrJumpable() ?
-  \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ coc#refresh()
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-" let g:coc_snippet_next = '<tab>'
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-				\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-vmap <C-j> <Plug>(coc-snippets-select)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
-" Explorer
-
-autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
-augroup MyCocExplorer
-  autocmd!
-  autocmd VimEnter * sil! au! FileExplorer *
-  autocmd BufEnter * let d = expand('%') | if isdirectory(d) | bd | exe 'CocCommand explorer ' . d | endif
-augroup END
-
-"smartf
-nmap f <Plug>(coc-smartf-forward)
-nmap F <Plug>(coc-smartf-backward)
-nmap ; <Plug>(coc-smartf-repeat)
-nmap , <Plug>(coc-smartf-repeat-opposite)
-augroup Smartf
-  autocmd User SmartfEnter :hi Conceal ctermfg=220 guifg=#6638F0
-  autocmd User SmartfLeave :hi Conceal ctermfg=239 guifg=#504945
-augroup end
 
 " startify
 let g:startify_session_autoload = 1

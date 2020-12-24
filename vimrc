@@ -1,94 +1,43 @@
+
+call plug#begin()
+Plug 'vim-airline/vim-airline'
+Plug 'morhetz/gruvbox'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'yarn install --frozen-lockfile' }
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'cristianoliveira/vim-react-html-snippets'
+Plug 'honza/vim-snippets'
+Plug 'alvan/vim-closetag'
+Plug 'valloric/matchtagalways'
+Plug 'andrewradev/tagalong.vim'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'voldikss/vim-floaterm'
+Plug 'tpope/vim-commentary'
+Plug 'kien/ctrlp.vim'
+Plug 'mbbill/undotree'
+Plug 'terryma/vim-expand-region'
+Plug 'dyng/ctrlsf.vim'
+Plug 'airblade/vim-rooter'
+Plug 'tpope/vim-repeat'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-eunuch'
+Plug 'mhinz/vim-startify'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-line'
+Plug 'vim-china/vimdoc-cn'
+call plug#end()
+filetype plugin on
+syntax on
+
 let mapleader=","
-if filereadable(expand("~/vim-config/basic.vim"))
-  source ~/vim-config/basic.vim
-endif
-
-if filereadable(expand("~/vim-config/plug.vim"))
-  source ~/vim-config/plug.vim
-endif
-
-if filereadable(expand("~/vim-config/conf.vim"))
-  source ~/vim-config/conf.vim
-endif
-
-" ==================================================================================
-" self config
-inoremap jj <ESC>
-" 定义快捷键到行首和行尾
-noremap H 0
-noremap L $
-noremap Y y$
-
-" 重定义0作为第一个字符
-noremap 0 ^
-" 新旧位置切换
-nnoremap <silent> ( g;
-nnoremap <silent> ) g,
-"用默认寄存器替换当前选定的文本，而不将其隐藏
-vnoremap p "_dP
-
-noremap j gj
-noremap k gk
-
-" 命令行的快捷键
-cnoremap <C-j> <t_kd>
-cnoremap <C-k> <t_ku>
-cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
-
-" insert 模式下的编辑快捷键
-inoremap <C-o> <Esc>o
-inoremap <C-a> <Home>
-inoremap <C-e> <End>
-" 上下左右
-inoremap <C-k> <Up>
-inoremap <C-j> <Down>
-inoremap <C-p> <Up>
-inoremap <C-n> <Down>
-inoremap <C-f> <Right>
-inoremap <C-b> <Left>
-inoremap <C-l> <Right>
-
-"Smart way to move between windows
-noremap <C-j> <C-W>j
-noremap <C-k> <C-W>k
-noremap <C-h> <C-W>h
-noremap <C-l> <C-W>l
-nnoremap <C-e> 2<C-e>
-nnoremap <C-y> 2<C-y>
-
-" remap U to <C-r> for easier redo
-nnoremap U <C-r>
-
-"" Vmap for maintain Visual Mode after shifting > and <
-vnoremap < <gv
-vnoremap > >gv
-
-"" Move visual block
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-
-" 定义快捷键保存所有窗口内容并退出 vim
-nmap <Leader>WQ :wa<CR>:q<CR>
-" 不做任何保存，直接退出 vim
-nmap <Leader>Q :qa!<CR>
-
-" buffer
-nnoremap <leader>q :bd<CR>
-
-" 用 m/M 来切换buffer
-noremap t :bn<CR>
-noremap T :bp<CR>
-
-" Split the window using some nice shortcuts
-nmap <leader>sv :vsplit<cr>
-nmap <leader>ss :split<cr>
-
-" Map Ctrl+V to paste in Insert mode
-imap <C-V> <C-R>*
-nmap <leader>v "+gP
-" Map Ctrl+C to copy in Visual mode
-vmap <C-C> "+y
+" vimrc files
+for s:path in split(glob('~/vim-config/*.vim'), "\n")
+  exe 'source ' . s:path
+endfor
 
 "===================================================================================
 "  theme color
@@ -132,6 +81,3 @@ let g:startify_custom_footer =
            \"    v:  open in vertical split",
            \"    t:  open in tab",
            \ '']
-" theme
-set bg=dark                     "设置背景为黑色
-colorscheme gruvbox             "设置主题为 gruvbox
