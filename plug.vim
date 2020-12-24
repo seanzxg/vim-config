@@ -17,6 +17,8 @@ let g:airline#extensions#tabline#formatter = 'jsformatter'
 let g:undotree_SplitWidth = 60
 let g:undotree_WindowLayout = 3
 
+" vim-cool 
+let g:CoolTotalMatches = 1
 
 " floaterm config
 " let g:floaterm_keymap_toggle = '<F1>'

@@ -128,7 +128,7 @@ set noswapfile
 set fileformats=unix,dos
 set formatoptions+=j
 set formatoptions+=o
-set diffopt
+" set diffopt
 set path+=**
 set tags+=gems.tags,stdlib.tags
 set showbreak=↪ 
@@ -151,7 +151,7 @@ set showtabline=2
 set noshowmode
 set synmaxcol=300
 " Formatting
-set smartcase
+" set smartcase
 set shiftround
 set autoindent
 set wrap

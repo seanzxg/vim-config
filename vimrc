@@ -29,6 +29,8 @@ Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-line'
 Plug 'vim-china/vimdoc-cn'
+Plug 'romainl/vim-cool'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 filetype plugin on
 syntax on

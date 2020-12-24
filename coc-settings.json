@@ -67,6 +67,7 @@
   ],
   "explorer.file.root.template": "[icon] [git] [hidden & 1][root]",
   "explorer.icon.enableNerdfont": true,
+  "explorer.icon.enableVimDevicons": false,
   "explorer.file.showHiddenFiles": false,
   "explorer.keyMappings.global": {
     "<cr>": ["expandable?", "expand", "open"],
