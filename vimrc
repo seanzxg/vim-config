@@ -35,15 +35,12 @@ call plug#end()
 filetype plugin on
 syntax on
 
+
 let mapleader=","
 " vimrc files
 for s:path in split(glob('~/vim-config/*.vim'), "\n")
   exe 'source ' . s:path
 endfor
-
-"===================================================================================
-"  theme color
-colorscheme gruvbox
 
 " 二进制网站
 " http://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20

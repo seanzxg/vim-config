@@ -126,27 +126,6 @@ nmap <silent> <C-a> :call CocAction('runCommand', 'document.renameCurrentWord')<
 nmap <silent> [d <Plug>(coc-diagnostic-prev)
 nmap <silent> ]d <Plug>(coc-diagnostic-next)
 
-" list 
-nnoremap <silent> \r  :<C-u>CocList -N mru -A<cr>
-nnoremap <silent><nowait> <space>h  :<C-u>CocList helptags<cr>
-nnoremap <silent><nowait> <space>g  :<C-u>CocList gstatus<CR>
-nnoremap <silent><nowait> <space>t  :<C-u>CocList buffers<cr>
-nnoremap <silent><nowait> <space>y  :<C-u>CocList yank<cr>
-nnoremap <silent><nowait> <space>u  :<C-u>CocList snippets<cr>
-nnoremap <silent><nowait> <space>w  :exe 'CocList -A -I --normal --input='.expand('<cword>').' words -w'<CR>
-nnoremap <silent><nowait> <space>l  :<C-u>CocList -I --ignore-case lines<CR>
-nnoremap <silent><nowait> <space>q  :<C-u>CocList quickfix<CR>
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
-nnoremap <silent><nowait> <space>s  :<C-u>CocList symbols<cr>
-nnoremap <silent><nowait> <space>r  :<C-u>CocList mru<cr>
-nnoremap <silent><nowait> <space>f  :<C-u>CocList files<cr>
-nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
-nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-
 " visual search ******************************************
 "  In visual mode when you press * or # to search for the current selection
 xnoremap    <silent> * :call <SID>visualSearch('f')<CR>

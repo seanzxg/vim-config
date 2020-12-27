@@ -10,8 +10,8 @@ set laststatus=2
 " 开启行号显示
 set number
 " 高亮显示当前行/列
-" set cursorline
-" set cursorcolumn
+set cursorline
+set cursorcolumn
 " 高亮显示搜索结果
 set hlsearch
 " 禁止折行
@@ -106,61 +106,7 @@ set cmdheight=2
 set updatetime=300
 " 不要讲消息传递给 ins-completion-menu
 set shortmess+=c
-
-if !has('nvim')
-  set notagbsearch
-endif
-set termguicolors
-set pumheight=15
-set wildmenu
-set signcolumn=yes
-set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
-set autowrite
-set mouse=h
-set novisualbell
-if exists('&tagfunc')
-  set tagfunc=CocTagFunc
-endif
-
-set belloff=all
-set noimdisable
-set noswapfile
-set fileformats=unix,dos
-set formatoptions+=j
-set formatoptions+=o
-" set diffopt
-set path+=**
-set tags+=gems.tags,stdlib.tags
-set showbreak=↪ 
-set shortmess=aFc
-set cmdheight=2
-set sessionoptions+=winsize
-set sessionoptions+=resize
-set sessionoptions-=blank
-set sessionoptions+=localoptions
-set sessionoptions+=globals
-set viewoptions=cursor,folds,slash,unix
-set ttimeout
-set ttimeoutlen=100
-set tabpagemax=10
-set scrolloff=3
-set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
-set wildignore+=*.so,*~,*/.git/*,*/.svn/*,*/.DS_Store,*/tmp/*
-set keywordprg=
-set showtabline=2
-set noshowmode
-set synmaxcol=300
-" Formatting
-" set smartcase
-set shiftround
-set autoindent
-set wrap
-set guioptions-=r
-set grepprg=rg\ --vimgrep\ $*
-set grepformat=%f:%l:%c:%m
-set title
-set wildignorecase
-set noruler
+set mouse=c
 if has('gui_running')
   let macvim_skip_colorscheme=1
   set bg=dark                     "设置背景为黑色
