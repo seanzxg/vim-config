@@ -125,3 +125,5 @@ let g:webdevicons_enable_startify = 1
 "         return 'WebDevIconsGetFileTypeSymbol(absolute_path) ."". entry_path'
 "     endfunction
 let g:startify_enable_special = 0
+
+let g:airline_theme='powerlineish'
