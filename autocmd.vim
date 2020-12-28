@@ -2,7 +2,7 @@ augroup common
   autocmd!
   autocmd BufReadPost *.log normal! G
   autocmd BufWinEnter * call s:OnBufEnter()
-  autocmd ColorScheme * call s:Highlight()
+  autocmd ColorScheme * call s:my_bookmark_color()
   autocmd FileType * call s:OnFileType(expand('<amatch>'))
   " Highlight the symbol and its references when holding the cursor.
   autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -26,26 +26,6 @@ function! EmptyBuffer()
   endif
 endfunction
 
-function! s:Highlight() abort
-  if !has('gui_running') | hi normal guibg=NONE | endif
-  call matchadd('ColorColumn', '\%81v', 100)
-  hi ColorColumn ctermbg=magenta ctermfg=0 guibg=#333333
-  hi HighlightedyankRegion term=bold ctermbg=0 guibg=#13354A
-  hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
-  hi CursorLineNr  ctermfg=214 ctermbg=NONE guifg=#fabd2f guibg=NONE
-  hi CocErrorFloat   guifg=#fb4934 guibg=#504945
-  hi CocWarningFloat guifg=#fabd2f guibg=#504945
-  hi CocInfoFloat    guifg=#d3869b guibg=#504945
-  hi CocHintFloat    guifg=#83a598 guibg=#504945
-  hi CocMenuSel      ctermbg=237 guibg=#504945
-  hi link CocErrorSign    GruvboxRedSign
-  hi link CocWarningSign  GruvboxYellowSign
-  hi link CocInfoSign     GruvboxPurpleSign
-  hi link CocHintSign     GruvboxBlueSign
-  hi link CocFloating     Pmenu
-  hi link MsgSeparator    MoreMsg
-endfunction
-
 function! s:OnFileType(filetype)
   if index(['xml', 'wxml', 'html', 'wxss', 'css', 'scss', 'less'], a:filetype) >=0
     let b:coc_additional_keywords = ['-']
@@ -66,15 +46,12 @@ function! s:OnBufEnter()
 endfunction
 " }}
 
-function! s:CloseOthers() abort
-  if exists('g:coc_last_float_win')
-    for i in range(1, winnr('$'))
-      if getwinvar(i, 'float')
-        let winid = win_getid(i)
-        if winid != g:coc_last_float_win
-          call coc#util#close_win(winid)
-        endif
-      endif
-    endfor
+function! s:my_bookmark_color() abort
+  let s:scl_guibg = matchstr(execute('hi SignColumn'), 'guibg=\zs\S*')
+  if empty(s:scl_guibg)
+    let s:scl_guibg = 'NONE'
   endif
+  exe 'hi MyBookmarkSign guifg=' . s:scl_guibg
 endfunction
+call s:my_bookmark_color() " don't remove this line!
+

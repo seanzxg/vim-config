@@ -76,6 +76,7 @@ let g:mta_filetypes = {
 " let g:rooter_patterns = ['src', '.git', 'yarn.lock', 'package.json']
 let g:rooter_silent_chdir = 1
 
+
 " ==================================================================================
 " tagalong config
 let g:tagalong_filetypes = ['html', 'xml', 'jsx', 'eruby', 'ejs', 'eco', 'php', 'htmldjango', 'javascriptreact', 'typescriptreact', 'javascript']
@@ -100,6 +101,7 @@ let g:coc_global_extensions = [
   \ 'coc-lists',
   \ 'coc-git',
   \ 'coc-yank',
+  \ 'coc-bookmark',
   \ ]
 
 

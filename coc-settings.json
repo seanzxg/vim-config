@@ -105,5 +105,8 @@
   "diagnostic.hintSign": " ",
   // smartf
   "smartf.timeout": 2500,
-  "smartf.wordJump": false
+  "smartf.wordJump": false,
+  // git
+  "git.showCommitInFloating": true,
+  "git.signOffset": 1
 }

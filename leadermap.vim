@@ -37,6 +37,7 @@ nnoremap <silent><nowait> <leader>cs  :<C-u>CocList snippets<cr>
 nnoremap <silent><nowait> <leader>cq  :<C-u>CocList quickfix<CR>
 nnoremap <silent><nowait> <leader>cd  :<C-u>CocList diagnostics<cr>
 nnoremap <silent><nowait> <leader>ce  :<C-u>CocList extensions<cr>
+nnoremap <silent><nowait> <leader>cb  :<C-u>CocList bookmark<cr>
 nnoremap <silent><nowait> <leader>cc  :<C-u>CocList commands<cr>
 nnoremap <silent><nowait> <leader>cs  :<C-u>CocList symbols<cr>
 nnoremap <silent><nowait> <leader>cm  :<C-u>CocList mru<cr>
@@ -45,3 +46,6 @@ nnoremap <silent><nowait> <leader>cn  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <leader>cp  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <leader>cr  :<C-u>CocListResume<CR>
 nnoremap <silent><nowait> <leader>cy  :<C-u>CocList yank<cr>
+
+" bookmark
+nmap <Leader>m <Plug>(coc-bookmark-toggle)

@@ -92,6 +92,9 @@ set autoread
 " Off on start
 set nofoldenable
 
+" 显示记号列
+" set signcolumn=yes
+
 " Indent seems to work the best
 set foldmethod=indent
 set foldlevel=20

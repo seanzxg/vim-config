@@ -52,10 +52,6 @@ inoremap <C-u> <C-G>u<C-U>
 
 " command line mode ********************************
 cnoremap w!! w !sudo tee % >/dev/null:
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
-cnoremap <C-j> <Left>
-cnoremap <C-k> <Right>
 cnoremap <C-b> <S-Left>
 cnoremap <C-f> <S-Right>
 cnoremap <C-a> <Home>
@@ -125,6 +121,29 @@ endfunction
 nmap <silent> <C-a> :call CocAction('runCommand', 'document.renameCurrentWord')<CR>
 nmap <silent> [d <Plug>(coc-diagnostic-prev)
 nmap <silent> ]d <Plug>(coc-diagnostic-next)
+
+" bookmark
+nmap ]b <Plug>(coc-bookmark-next)
+nmap [b <Plug>(coc-bookmark-prev)
+
+" git
+nmap [g <Plug>(coc-git-prevchunk)
+nmap ]g <Plug>(coc-git-nextchunk)
+" navigate conflicts of current buffer
+nmap [c <Plug>(coc-git-prevconflict)
+nmap ]c <Plug>(coc-git-nextconflict)
+" show chunk diff at current position
+nmap gs <Plug>(coc-git-chunkinfo)
+" show commit contains current position
+nmap gc <Plug>(coc-git-commit)
+" create text object for git chunks
+omap ig <Plug>(coc-git-chunk-inner)
+xmap ig <Plug>(coc-git-chunk-inner)
+omap ag <Plug>(coc-git-chunk-outer)
+xmap ag <Plug>(coc-git-chunk-outer)
+
+
+
 
 " visual search ******************************************
 "  In visual mode when you press * or # to search for the current selection
