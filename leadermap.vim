@@ -25,11 +25,8 @@ nmap <leader>`  <Plug>(coc-fix-current)
 " Replace all of current word
 nnoremap <leader>s :%s/\<<C-r><C-w>\>//g<left><left>
  " coc.nvim
-nmap <leader>x  <Plug>(coc-cursors-operator)
 nmap <leader>f <Plug>(coc-refactor)
-nmap <leader>a <Plug>(coc-codelens-action)
-xmap <leader>x  <Plug>(coc-convert-snippet)
-nmap <leader>d<Plug>(coc-diagnostic-info)
+xmap <leader>x <Plug>(coc-convert-snippet)
 
 " list 
 nnoremap <silent> \r  :<C-u>CocList -N mru -A<cr>

@@ -2,7 +2,8 @@ call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'cristianoliveira/vim-react-html-snippets'
@@ -54,11 +55,11 @@ let g:startify_commands = [
         \ ':help',
         \ ]
 let g:startify_bookmarks = [
-            \ { 'ds': '~/work/kuaishou-frontend-ad-alliance-promoter' },
-            \ { 'ad': '~/work/kuaishou-frontend-ad-ssp' },
-            \ { 'op': '~/work/kuaishou-frontend-ad-ssp-operation' },
+            \ { 'ap': '~/work/kuaishou-frontend-ad-alliance-promoter' },
+            \ { 'ss': '~/work/kuaishou-frontend-ad-ssp' },
+            \ { 'so': '~/work/kuaishou-frontend-ad-ssp-operation' },
             \ { 'ui': '~/work/r-ui' },
-            \ { 'c': '~/vim-config/init.vim' },
+            \ { 'c': '~/vim-config/vimrc' },
             \ { 'z': '~/.zshrc' },
             \ ]
 let g:startify_session_dir = '~/.config/nvim/session'

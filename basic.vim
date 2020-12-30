@@ -109,7 +109,7 @@ set cmdheight=2
 set updatetime=300
 " 不要讲消息传递给 ins-completion-menu
 set shortmess+=c
-set mouse=c
+" set mouse=c
 if has('gui_running')
   let macvim_skip_colorscheme=1
   set bg=dark                     "设置背景为黑色
