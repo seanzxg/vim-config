@@ -108,5 +108,10 @@
   "smartf.wordJump": false,
   // git
   "git.showCommitInFloating": true,
-  "git.signOffset": 1
+  "git.signOffset": 1,
+  // eslint
+  "eslint.packageManager": "yarn",
+  "eslint.autoFixOnSave": false,
+  // tsserver
+  "tsserver.disableAutomaticTypeAcquisition": false
 }

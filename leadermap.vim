@@ -27,7 +27,7 @@ nnoremap <leader>s :%s/\<<C-r><C-w>\>//g<left><left>
  " coc.nvim
 nmap <leader>x  <Plug>(coc-cursors-operator)
 nmap <leader>f <Plug>(coc-refactor)
-nmap <leader>a <Plug>(coc-codelens-action)
+" nmap <leader>a <Plug>(coc-codelens-action)
 xmap <leader>x  <Plug>(coc-convert-snippet)
 nmap <leader>d<Plug>(coc-diagnostic-info)
 

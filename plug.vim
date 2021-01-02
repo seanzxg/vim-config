@@ -102,6 +102,7 @@ let g:coc_global_extensions = [
   \ 'coc-git',
   \ 'coc-yank',
   \ 'coc-bookmark',
+  \ 'coc-eslint',
   \ ]
 
 
