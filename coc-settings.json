@@ -39,6 +39,8 @@
     "<C-n>": "<Down>",
     "<C-p>": "<Up>"
   },
+  "list.nextKeymap": "<C-n>",
+  "list.previousKeymap": "<C-p>",
   "list.indicator": ">",
   "list.selectedSignText": " ",
   // 代码块
@@ -48,6 +50,7 @@
     "typescriptreact": ["typescript"]
   },
   // explorer
+  "explorer.debug": true,
   "explorer.width": 60,
   "explorer.position": "right",
   "explorer.quitOnOpen": true,
@@ -75,6 +78,7 @@
     "v": "open:vsplit",
     "c": "preview.content"
   },
+  // "explorer.floating.hideOnCocList": true,
   // emmet 文件支持
   "emmet.includeLanguages": {
     "javascript": "javascriptreact",
@@ -104,14 +108,14 @@
   "diagnostic.infoSign": "",
   "diagnostic.hintSign": " ",
   // smartf
-  "smartf.timeout": 2500,
+  "smartf.timeout": 2000,
   "smartf.wordJump": false,
   // git
   "git.showCommitInFloating": true,
   "git.signOffset": 1,
   // eslint
   "eslint.packageManager": "yarn",
-  "eslint.autoFixOnSave": false,
+  "eslint.autoFixOnSave": true,
   // tsserver
   "tsserver.disableAutomaticTypeAcquisition": false
 }

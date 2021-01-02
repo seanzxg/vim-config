@@ -5,6 +5,7 @@ noremap H 0
 noremap L $
 noremap Y y$
 noremap 0 ^
+noremap m `.
 " 新旧位置切换
 nnoremap <silent> ( g;
 nnoremap <silent> ) g,
@@ -38,8 +39,6 @@ nnoremap <C-e> 2<C-e>
 nnoremap <C-y> 2<C-y>
 
 " insert mode ********************************
-inoremap <C-k> <Up>
-inoremap <C-j> <Down>
 inoremap <C-p> <Up>
 inoremap <C-n> <Down>
 inoremap <C-f> <Right>
@@ -142,9 +141,6 @@ xmap ig <Plug>(coc-git-chunk-inner)
 omap ag <Plug>(coc-git-chunk-outer)
 xmap ag <Plug>(coc-git-chunk-outer)
 
-
-
-
 " visual search ******************************************
 "  In visual mode when you press * or # to search for the current selection
 xnoremap    <silent> * :call <SID>visualSearch('f')<CR>
@@ -163,12 +159,3 @@ function! s:visualSearch(direction)
   let       @/ = l:pattern
   let       @" = l:saved_reg
 endfunction
-
-
-
-
-
-
-
-
-

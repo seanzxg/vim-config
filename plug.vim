@@ -22,7 +22,6 @@ let g:CoolTotalMatches = 1
 
 " floaterm config
 " let g:floaterm_keymap_toggle = '<F1>'
-" let g:floaterm_width = 200
 let g:floaterm_height = 34 
 let g:floaterm_rootmarkers = ['.git', '.gitignore']
 let g:floaterm_autoclose = 2
