@@ -35,8 +35,10 @@ noremap <C-j> <C-W>j
 noremap <C-k> <C-W>k
 noremap <C-h> <C-W>h
 noremap <C-l> <C-W>l
+noremap <C-m> <C-W>o
 nnoremap <C-e> 2<C-e>
 nnoremap <C-y> 2<C-y>
+
 
 " insert mode ********************************
 inoremap <C-p> <Up>
@@ -47,10 +49,10 @@ inoremap <C-b> <Left>
 
 inoremap <C-l> <Right>
 
-inoremap <C-o> <Esc>o
-inoremap <C-i> <Esc>O
-inoremap <C-a> <ESC>I
 inoremap <C-e> <End>
+inoremap <C-a> <C-o>^
+inoremap <C-o> <C-o>o
+inoremap <C-k> <C-o>O
 
 " command line mode ********************************
 cnoremap w!! w !sudo tee % >/dev/null:
@@ -162,3 +164,4 @@ function! s:visualSearch(direction)
   let       @/ = l:pattern
   let       @" = l:saved_reg
 endfunction
+
