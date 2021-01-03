@@ -44,21 +44,21 @@
   "list.indicator": ">",
   "list.selectedSignText": " ",
   // 代码块
+  "snippets.ultisnips.enable": false,
   "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/snippets"],
   "snippets.extends": {
     "javascriptreact": ["javascript"],
     "typescriptreact": ["typescript"]
   },
+  "snippets.textmateSnippetsRoots": [
+    "/Users/sean/.config/nvim/plugged/vscode-es7-javascript-react-snippets/snippets"
+  ],
   // explorer
-  "explorer.debug": true,
-  "explorer.width": 60,
+  "explorer.debug": false,
+  "explorer.width": 50,
   "explorer.position": "right",
   "explorer.quitOnOpen": true,
   "explorer.sources": [
-    {
-      "name": "bookmark",
-      "expand": true
-    },
     {
       "name": "buffer",
       "expand": true
@@ -110,6 +110,7 @@
   // smartf
   "smartf.timeout": 2000,
   "smartf.wordJump": false,
+  "smartf.jumpOnTrigger": false,
   // git
   "git.showCommitInFloating": true,
   "git.signOffset": 1,

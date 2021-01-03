@@ -45,6 +45,7 @@ inoremap <C-f> <Right>
 inoremap <C-b> <Left>
 inoremap <C-l> <Right>
 inoremap <C-o> <Esc>o
+inoremap <C-i> <Esc>O
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
 inoremap <C-u> <C-G>u<C-U>

@@ -2,20 +2,17 @@ call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'cristianoliveira/vim-react-html-snippets'
-Plug 'honza/vim-snippets'
+" Plug 'honza/vim-snippets'
 Plug 'alvan/vim-closetag'
 Plug 'valloric/matchtagalways'
 Plug 'andrewradev/tagalong.vim'
-" Plug 'HerringtonDarkholme/yats.vim'
-" Plug 'maxmellon/vim-jsx-pretty'
-Plug 'mxw/vim-jsx'
-Plug 'ianks/vim-tsx'
-
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'jiangmiao/auto-pairs'
 Plug 'voldikss/vim-floaterm'
 Plug 'tpope/vim-commentary'
 Plug 'kien/ctrlp.vim'
@@ -33,10 +30,11 @@ Plug 'kana/vim-textobj-line'
 Plug 'vim-china/vimdoc-cn'
 Plug 'romainl/vim-cool'
 Plug 'ryanoasis/vim-devicons'
+Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
+
 call plug#end()
 filetype plugin on
 syntax on
-
 
 let mapleader=","
 " vimrc files

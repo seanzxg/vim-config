@@ -95,11 +95,9 @@ let g:coc_global_extensions = [
   \ 'coc-tabnine',
   \ 'coc-snippets',
   \ 'coc-explorer',
-  \ 'coc-pairs',
   \ 'coc-smartf',
   \ 'coc-lists',
   \ 'coc-git',
-  \ 'coc-yank',
   \ 'coc-bookmark',
   \ 'coc-eslint',
   \ ]

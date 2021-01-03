@@ -38,7 +38,7 @@ nnoremap <silent><nowait> <leader>cd  :<C-u>CocList diagnostics<cr>
 nnoremap <silent><nowait> <leader>ce  :<C-u>CocList extensions<cr>
 nnoremap <silent><nowait> <leader>cb  :<C-u>CocList bookmark<cr>
 nnoremap <silent><nowait> <leader>cc  :<C-u>CocList commands<cr>
-nnoremap <silent><nowait> <leader>cs  :<C-u>CocList symbols<cr>
+" nnoremap <silent><nowait> <leader>cs  :<C-u>CocList symbols<cr>
 nnoremap <silent><nowait> <leader>cm  :<C-u>CocList mru<cr>
 nnoremap <silent><nowait> <leader>cf  :<C-u>CocList files<cr>
 nnoremap <silent><nowait> <leader>cn  :<C-u>CocNext<CR>
