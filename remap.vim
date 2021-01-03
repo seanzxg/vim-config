@@ -41,14 +41,16 @@ nnoremap <C-y> 2<C-y>
 " insert mode ********************************
 inoremap <C-p> <Up>
 inoremap <C-n> <Down>
+
 inoremap <C-f> <Right>
 inoremap <C-b> <Left>
+
 inoremap <C-l> <Right>
+
 inoremap <C-o> <Esc>o
 inoremap <C-i> <Esc>O
-inoremap <C-a> <Home>
+inoremap <C-a> <ESC>I
 inoremap <C-e> <End>
-inoremap <C-u> <C-G>u<C-U>
 
 " command line mode ********************************
 cnoremap w!! w !sudo tee % >/dev/null:
