@@ -17,18 +17,18 @@ vnoremap > >gv
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 " 用 m/M 来切换buffer
-noremap t :bn<CR>
-noremap T :bp<CR>
+noremap gn :bn<CR>
+noremap gp :bp<CR>
 " Map Ctrl+V to paste in Insert mode
 inoremap <C-v> <C-o>"+]p
 xnoremap <C-c> "+y
 "用默认寄存器替换当前选定的文本，而不将其隐藏
 vnoremap p "_dP
 " some shortcut for git
-nnoremap gci :Gcommit -v<CR>
-nnoremap gca :Gcommit -a -v<CR>
-nnoremap gcc :Gcommit -v -- <C-R>=expand('%')<CR><CR>
-nnoremap gp :CocCommand git.push<CR>
+" nnoremap gci :Gcommit -v<CR>
+" nnoremap gca :Gcommit -a -v<CR>
+" nnoremap gcc :Gcommit -v -- <C-R>=expand('%')<CR><CR>
+" nnoremap gp :CocCommand git.push<CR>
 
 "Smart way to move between windows
 noremap <C-j> <C-W>j
@@ -136,10 +136,10 @@ nmap ]g <Plug>(coc-git-nextchunk)
 " navigate conflicts of current buffer
 nmap [c <Plug>(coc-git-prevconflict)
 nmap ]c <Plug>(coc-git-nextconflict)
-" show chunk diff at current position
-nmap gs <Plug>(coc-git-chunkinfo)
+" show chunk diff as current position
+" nmap gs <Plug>(coc-git-chunkinfo)
 " show commit contains current position
-nmap gc <Plug>(coc-git-commit)
+" nmap gc <Plug>(coc-git-commit)
 " create text object for git chunks
 omap ig <Plug>(coc-git-chunk-inner)
 xmap ig <Plug>(coc-git-chunk-inner)

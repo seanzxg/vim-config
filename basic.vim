@@ -128,4 +128,5 @@ endif
 set complete+=k
 set complete-=t
 set completeopt=menu,preview
+set rtp+=/usr/local/opt/fzf
 
