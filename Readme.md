@@ -16,6 +16,8 @@ python3 -m pip install --user --upgrade pynvim
 python2 -m pip install --user --upgrade pynvim
 gem install neovim
 npm install -g neovim
+# floaterm 支持在vim-floaterm浮窗在当前页面打开文件
+pip3 install neovim-remote
 
 echo "alias vim=nvim" >> ~/.zshrc
 echo "alias vi=nvim" >> ~/.zshrc
