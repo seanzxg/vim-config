@@ -101,6 +101,7 @@ let g:coc_global_extensions = [
   \ 'coc-bookmark',
   \ 'coc-tailwindcss',
   \ 'coc-eslint',
+  \ 'coc-fzf-preview',
   \ ]
 
 
@@ -126,3 +127,35 @@ let g:webdevicons_enable_startify = 1
 "         return 'WebDevIconsGetFileTypeSymbol(absolute_path) ."". entry_path'
 "     endfunction
 let g:startify_enable_special = 0
+
+" fzf
+let g:fzf_layout = { "window": { 'width': 0.8, 'height': 0.8 } }
+let g:fzf_command_prefix = 'Fzf'
+
+" fzf-checkout
+let g:fzf_checkout_git_options = '--sort=-committerdate'
+let g:fzf_branch_actions = {
+      \ 'diff': {
+      \   'prompt': 'Diff> ',
+      \   'execute': 'Git diff {branch}',
+      \   'multiple': v:false,
+      \   'keymap': 'ctrl-f',
+      \   'required': ['branch'],
+      \   'confirm': v:false,
+      \ },
+      \ 'delete': {
+      \   'keymap': 'ctrl-r',
+      \   'confirm': v:true,
+      \ },
+      \}
+let g:fzf_checkout_merge_settings = v:false
+let g:fzf_branch_actions = {
+      \ 'checkout': {
+      \   'prompt': 'Checkout> ',
+      \   'execute': 'echo system("{git} checkout {branch}")',
+      \   'multiple': v:false,
+      \   'keymap': 'enter',
+      \   'required': ['branch'],
+      \   'confirm': v:false,
+      \ },
+      \}

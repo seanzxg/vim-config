@@ -27,8 +27,8 @@ Plug 'vim-china/vimdoc-cn'
 Plug 'romainl/vim-cool'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'yuki-ycino/fzf-preview.vim'
 Plug 'junegunn/fzf.vim'
+Plug 'stsewd/fzf-checkout.vim'
 Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
 
 call plug#end()
@@ -59,6 +59,7 @@ let g:startify_bookmarks = [
             \ { 'ss': '~/work/kuaishou-frontend-ad-ssp' },
             \ { 'so': '~/work/kuaishou-frontend-ad-ssp-operation' },
             \ { 'ui': '~/work/r-ui' },
+            \ { 'gd': '~/work/gitdemo' },
             \ { 'c': '~/vim-config/vimrc' },
             \ { 'z': '~/.zshrc' },
             \ ]
