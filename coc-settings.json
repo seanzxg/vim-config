@@ -55,6 +55,7 @@
   ],
   // explorer
   "explorer.debug": false,
+  "explorer.openAction.strategy": "sourceWindow",
   "explorer.width": 50,
   "explorer.position": "right",
   "explorer.quitOnOpen": true,
@@ -85,6 +86,8 @@
     "typescript": "typescriptreact"
   },
   "emmet.optimizeStylesheetParsing": false,
+  "emmet.showExpandedAbbreviation": "never",
+  "emmet.showAbbreviationSuggestions": false,
   //自动格式
   "coc.preferences.formatOnSaveFiletypes": [
     "css",

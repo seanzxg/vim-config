@@ -25,6 +25,7 @@ Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-line'
 Plug 'vim-china/vimdoc-cn'
 Plug 'romainl/vim-cool'
+Plug 'cristianoliveira/vim-react-html-snippets'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
