@@ -43,6 +43,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        
 # 安装ag，用于ctrlsf搜索，其他请自行查看文档https://github.com/ggreer/the_silver_searcher
 brew install the_silver_searcher
+brew install ripgrep
 ```
 
 #### 安装依赖

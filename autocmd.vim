@@ -10,7 +10,8 @@ augroup common
   " 重新打开文件,回到上次鼠标悬停的位置
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
   " 自动改变当前项目的目录
-  autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
+  " autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
+
   autocmd VimEnter * sil! au! FileExplorer *
   autocmd BufEnter * let d = expand('%') | if isdirectory(d) | bd | exe 'CocCommand explorer ' . d | endif
   " Explorer

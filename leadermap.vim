@@ -3,15 +3,15 @@ nnoremap <leader>q :bd<CR>
 nmap <leader>sv :vsplit<cr>
 nmap <leader>ss :split<cr>
 " Fugitive config
-nmap <leader>gb :Gblame<cr>
-nmap <leader>gc :Gcommit<cr>
-nmap <leader>gd :Gdiff<cr>
-nmap <leader>gg :Ggrep
-nmap <leader>gh :Glog<cr>
-nmap <leader>gl :Git pull<cr>
-nmap <leader>gp :Git push<cr>
-nmap <leader>gs :Gstatus<cr>
-nmap <leader>gw :Gbrowse<cr>
+" nmap <leader>gb :Gblame<cr>
+" nmap <leader>gc :Gcommit<cr>
+" nmap <leader>gd :Gdiff<cr>
+" nmap <leader>gg :Ggrep
+" nmap <leader>gh :Glog<cr>
+" nmap <leader>gl :Git pull<cr>
+" nmap <leader>gp :Git push<cr>
+" nmap <leader>gs :Gstatus<cr>
+" nmap <leader>gw :Gbrowse<cr>
 nmap <leader>g? :map <leader>g<cr>
 
 " undotree config
@@ -69,7 +69,6 @@ nnoremap <silent> [fzf-p]l     :<C-u>CocCommand fzf-preview.Bookmarks<CR>
 nnoremap <leader>fa :<C-u>FzfAg<CR>
 nnoremap <leader>fw :<C-u>FzfWindows<CR>
 
-nnoremap <silent> <leader>gb    :<C-u>FzfGBranches<CR>
-nnoremap <silent> <leader>gc    :<C-u>FzfCommits<CR>
+nnoremap <silent> <leader>gh    :<C-u>FzfCommits<CR>
 nnoremap <silent> <leader>gs    :<C-u>CocCommand fzf-preview.GitStatus<CR>
 nnoremap <silent> <leader>ga    :<C-u>CocCommand fzf-preview.GitActions<CR>
