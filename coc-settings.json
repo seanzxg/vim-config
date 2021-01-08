@@ -56,8 +56,8 @@
   // explorer
   "explorer.debug": false,
   "explorer.openAction.strategy": "sourceWindow",
-  "explorer.width": 50,
-  "explorer.position": "right",
+  "explorer.width": 60,
+  "explorer.position": "left",
   "explorer.quitOnOpen": true,
   "explorer.sources": [
     {

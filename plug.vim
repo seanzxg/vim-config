@@ -33,7 +33,7 @@ let g:ctrlsf_auto_focus = {
     \ "at": "start",
     \ "duration_less_than": 1000
     \ }
-let g:ctrlsf_winsize = '40%'
+let g:ctrlsf_winsize = '45%'
 inoremap <C-t> <Esc>:CtrlSFToggle<CR>
 nnoremap <C-t> :CtrlSFToggle<CR>
 let g:ctrlsf_position = 'right'
@@ -97,7 +97,6 @@ let g:coc_global_extensions = [
   \ 'coc-explorer',
   \ 'coc-smartf',
   \ 'coc-lists',
-  \ 'coc-git',
   \ 'coc-bookmark',
   \ 'coc-tailwindcss',
   \ 'coc-eslint',
@@ -131,4 +130,5 @@ let g:startify_enable_special = 0
 " fzf
 let g:fzf_layout = { "window": { 'width': 0.8, 'height': 0.8 } }
 let g:fzf_command_prefix = 'Fzf'
+let g:fzf_buffers_jump = 1
 

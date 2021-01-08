@@ -10,8 +10,8 @@ set laststatus=2
 " 开启行号显示
 set number
 " 高亮显示当前行/列
-" set cursorline
-" set cursorcolumn
+set cursorline
+set cursorcolumn
 " 高亮显示搜索结果
 set hlsearch
 " 禁止折行
@@ -109,6 +109,7 @@ set cmdheight=2
 set updatetime=300
 " 不要讲消息传递给 ins-completion-menu
 set shortmess+=c
+set title
 " set mouse=c
 if has('gui_running')
   let macvim_skip_colorscheme=1

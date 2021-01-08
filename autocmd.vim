@@ -4,6 +4,8 @@ augroup common
   autocmd BufWinEnter * call s:OnBufEnter()
   autocmd ColorScheme * call s:my_bookmark_color()
   autocmd FileType * call s:OnFileType(expand('<amatch>'))
+  " 文件树打开的时候，调用fzf不在文件树的buffer打开
+  autocmd BufEnter * if bufname('#') =~ 'coc-explorer' && bufname('%') !~ 'coc-explorer' && winnr('$') > 1 | b# | exe "normal! \<c-w>\<c-w>" | :blast | endif
   " Highlight the symbol and its references when holding the cursor.
   autocmd CursorHold * silent call CocActionAsync('highlight')
   " :set autochdir
