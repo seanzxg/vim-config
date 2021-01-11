@@ -127,9 +127,8 @@ nmap <silent> [d <Plug>(coc-diagnostic-prev)
 nmap <silent> ]d <Plug>(coc-diagnostic-next)
 
 " bookmark
-nmap ]b <Plug>(coc-bookmark-next)
-nmap [b <Plug>(coc-bookmark-prev)
-
+nmap [b <Plug>BookmarkPrev
+nmap ]b <Plug>BookmarkNext
 " git
 " nmap [g <Plug>(coc-git-prevchunk)
 " nmap ]g <Plug>(coc-git-nextchunk)

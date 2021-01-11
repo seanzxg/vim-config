@@ -21,12 +21,11 @@ let g:undotree_WindowLayout = 3
 let g:CoolTotalMatches = 1
 
 " floaterm config
-" let g:floaterm_keymap_toggle = '<F1>'
 let g:floaterm_height = 34 
 let g:floaterm_rootmarkers = ['.git', '.gitignore']
 let g:floaterm_autoclose = 2
-let g:floaterm_wintype="normal"
-let g:floaterm_position='bottom'
+let g:floaterm_width = 1.00 
+let g:floaterm_position = "bottom"
 
 " ctrlsf config
 let g:ctrlsf_auto_focus = {
@@ -87,6 +86,7 @@ let g:coc_global_extensions = [
   \ 'coc-prettier',
   \ 'coc-json',
   \ 'coc-css',
+  \ 'coc-git',
   \ 'coc-cssmodules',
   \ 'coc-emmet',
   \ 'coc-highlight',
@@ -97,7 +97,6 @@ let g:coc_global_extensions = [
   \ 'coc-explorer',
   \ 'coc-smartf',
   \ 'coc-lists',
-  \ 'coc-bookmark',
   \ 'coc-tailwindcss',
   \ 'coc-eslint',
   \ 'coc-fzf-preview',
@@ -132,3 +131,32 @@ let g:fzf_layout = { "window": { 'width': 0.8, 'height': 0.8 } }
 let g:fzf_command_prefix = 'Fzf'
 let g:fzf_buffers_jump = 1
 
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+" fzf preveiw
+" Commands used for project grep
+let g:fzf_preview_grep_cmd = 'rg --line-number --no-heading --color=never'
+
+" vim-bookmark
+let g:bookmark_no_default_key_mappings = 1
+
+let g:bookmark_sign = '♥'
+let g:bookmark_highlight_lines = 1
+nmap <Leader>mm <Plug>BookmarkToggle
+nmap <Leader>mi <Plug>BookmarkAnnotate
+nmap <Leader>ma <Plug>BookmarkShowAll
+nmap <Leader>mc <Plug>BookmarkClear
+nmap <Leader>mx <Plug>BookmarkClearAll
