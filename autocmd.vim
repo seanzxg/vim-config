@@ -21,8 +21,6 @@ augroup common
   " smartf
   autocmd User SmartfEnter :hi Conceal ctermfg=220 guifg=#cc241d
   autocmd User SmartfLeave :hi Conceal ctermfg=239 guifg=#504945
-  " fzf
-  autocmd User fzf_preview#rpc#initialized call s:fzf_preview_settings() " fzf_preview#remote#initialized or fzf_preview#coc#initialized
 augroup END
 
 function! EmptyBuffer()
@@ -60,8 +58,3 @@ function! s:my_bookmark_color() abort
 endfunction
 call s:my_bookmark_color() " don't remove this line!
 
-
-function! s:fzf_preview_settings() abort
-  let g:fzf_preview_command = 'COLORTERM=truecolor ' . g:fzf_preview_command
-  let g:fzf_preview_grep_preview_cmd = 'COLORTERM=truecolor ' . g:fzf_preview_grep_preview_cmd
-endfunction

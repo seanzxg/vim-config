@@ -10,8 +10,8 @@ set laststatus=2
 " 开启行号显示
 set number
 " 高亮显示当前行/列
-set cursorline
-set cursorcolumn
+" set cursorline
+" set cursorcolumn
 " 高亮显示搜索结果
 set hlsearch
 " 禁止折行
@@ -130,4 +130,5 @@ set complete+=k
 set complete-=t
 set completeopt=menu,preview
 set rtp+=/usr/local/opt/fzf
+set termguicolors
 

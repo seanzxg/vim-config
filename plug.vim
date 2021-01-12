@@ -127,36 +127,14 @@ let g:webdevicons_enable_startify = 1
 let g:startify_enable_special = 0
 
 " fzf
-let g:fzf_layout = { "window": { 'width': 0.8, 'height': 0.8 } }
+let g:fzf_layout = { "window": { 'width': 0.9, 'height': 0.9 } }
 let g:fzf_command_prefix = 'Fzf'
 let g:fzf_buffers_jump = 1
-
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-
-" fzf preveiw
-" Commands used for project grep
-let g:fzf_preview_grep_cmd = 'rg --line-number --no-heading --color=never'
+let $FZF_PREVIEW_PREVIEW_BAT_THEME = "gruvbox"
 
 " vim-bookmark
 let g:bookmark_no_default_key_mappings = 1
 
 let g:bookmark_sign = '♥'
 let g:bookmark_highlight_lines = 1
-nmap <Leader>mm <Plug>BookmarkToggle
-nmap <Leader>mi <Plug>BookmarkAnnotate
-nmap <Leader>ma <Plug>BookmarkShowAll
-nmap <Leader>mc <Plug>BookmarkClear
-nmap <Leader>mx <Plug>BookmarkClearAll
+

@@ -1,7 +1,8 @@
+nnoremap <leader>l :source $MYVIMRC<CR>
 " buffer
 nnoremap <leader>q :bd<CR>
-nmap <leader>sv :vsplit<cr>
-nmap <leader>ss :split<cr>
+nmap <leader>v :vsplit<cr>
+nmap <leader>s :split<cr>
 " Fugitive config
 " nmap <leader>gb :Gblame<cr>
 " nmap <leader>gc :Gcommit<cr>
@@ -45,9 +46,6 @@ nnoremap <silent><nowait> <leader>cn  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <leader>cp  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <leader>cr  :<C-u>CocListResume<CR>
 
-" bookmark
-nmap <Leader>m <Plug>(coc-bookmark-toggle)
-
 "fzf ,f+name
 nnoremap <leader>fc :FzfCommands<CR>
 
@@ -73,3 +71,10 @@ nnoremap <leader>fw :<C-u>FzfWindows<CR>
 nnoremap <silent> <leader>gh    :<C-u>FzfCommits<CR>
 nnoremap <silent> <leader>gs    :<C-u>CocCommand fzf-preview.GitStatus<CR>
 nnoremap <silent> <leader>ga    :<C-u>CocCommand fzf-preview.GitActions<CR>
+
+" vim-bookmarks
+nmap <Leader>mm <Plug>BookmarkToggle
+nmap <Leader>mi <Plug>BookmarkAnnotate
+nmap <Leader>ma <Plug>BookmarkShowAll
+nmap <Leader>mc <Plug>BookmarkClear
+nmap <Leader>mx <Plug>BookmarkClearAll
