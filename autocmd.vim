@@ -23,6 +23,8 @@ augroup common
   " autocmd User SmartfLeave :hi Conceal ctermfg=239 guifg=#504945
   " easymotion
   autocmd VimEnter * :EMCommandLineNoreMap <C-v> <Over>(paste)
+  autocmd User EasyMotionPromptBegin silent! CocDisable
+  autocmd User EasyMotionPromptEnd   silent! CocEnable
 augroup END
 
 function! EmptyBuffer()

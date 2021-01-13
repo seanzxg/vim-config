@@ -29,11 +29,6 @@
     "default": "\uf29c"
   },
 
-  // worthless sources when language-server is present
-  "coc.source.buffer.enable": true,
-  "coc.source.file.enable": true,
-  "coc.source.around.enable": true,
-
   // list
   "list.insertMappings": {
     "<C-n>": "<Down>",
@@ -44,11 +39,12 @@
   "list.indicator": ">",
   "list.selectedSignText": " ",
   // 代码块
-  "snippets.ultisnips.enable": false,
+  "snippets.ultisnips.enable": true,
   "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/snippets"],
   "snippets.extends": {
     "javascriptreact": ["javascript"],
-    "typescriptreact": ["typescript"]
+    "typescriptreact": ["typescript"],
+    "typescript": ["javascript"]
   },
   "snippets.textmateSnippetsRoots": [
     "/Users/sean/.config/nvim/plugged/vscode-es7-javascript-react-snippets/snippets"
@@ -79,7 +75,6 @@
     "v": "open:vsplit",
     "c": "preview.content"
   },
-  // "explorer.floating.hideOnCocList": true,
   // emmet 文件支持
   "emmet.includeLanguages": {
     "javascript": "javascriptreact",
@@ -104,16 +99,13 @@
   // 代码提示优先级
   "snippets.priority": 99,
   "emmet.priority": 90,
+  "tabnine.priority": 91,
   "suggest.languageSourcePriority": 95,
   // 代码报错提示
   "diagnostic.errorSign": " ",
   "diagnostic.warningSign": " ",
   "diagnostic.infoSign": "",
   "diagnostic.hintSign": " ",
-  // smartf
-  "smartf.timeout": 2000,
-  "smartf.wordJump": false,
-  "smartf.jumpOnTrigger": false,
   // git
   "git.showCommitInFloating": true,
   "git.signOffset": 1,
