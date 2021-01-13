@@ -52,7 +52,6 @@ let g:ctrlsf_mapping = {
 
 " vim-region
 map <Space> <Plug>(expand_region_expand)
-map <S-S> <Plug>(expand_region_shrink)
 
 " closetag config
 let g:closetag_filetypes = 'html,javascript,javascriptreact,typescript,typescriptreact'
@@ -100,6 +99,7 @@ let g:coc_global_extensions = [
   \ 'coc-tailwindcss',
   \ 'coc-eslint',
   \ 'coc-fzf-preview',
+  \ 'coc-pairs',
   \ ]
 
 

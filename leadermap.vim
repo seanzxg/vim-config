@@ -25,7 +25,7 @@ nmap <leader>a  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
 nmap <leader>`  <Plug>(coc-fix-current)
 " Replace all of current word
-nnoremap <leader>s :%s/\<<C-r><C-w>\>//g<left><left>
+" nnoremap <leader>s :%s/\<<C-r><C-w>\>//g<left><left>
  " coc.nvim
 " nmap <leader>f <Plug>(coc-refactor)
 " nmap <leader>a <Plug>(coc-codelens-action)
