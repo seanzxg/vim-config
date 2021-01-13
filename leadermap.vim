@@ -1,4 +1,4 @@
-nnoremap <leader>l :source $MYVIMRC<CR>
+nnoremap <leader>. :source $MYVIMRC<CR>
 " buffer
 nnoremap <leader>q :bd<CR>
 nmap <leader>v :vsplit<cr>

@@ -94,7 +94,6 @@ let g:coc_global_extensions = [
   \ 'coc-tabnine',
   \ 'coc-snippets',
   \ 'coc-explorer',
-  \ 'coc-smartf',
   \ 'coc-lists',
   \ 'coc-tailwindcss',
   \ 'coc-eslint',
@@ -134,7 +133,20 @@ let $FZF_PREVIEW_PREVIEW_BAT_THEME = "gruvbox"
 
 " vim-bookmark
 let g:bookmark_no_default_key_mappings = 1
-
 let g:bookmark_sign = '♥'
 let g:bookmark_highlight_lines = 1
+
+" easymotiono
+
+  " easymotion config
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map  \ <Plug>(easymotion-bd-w)
+nmap \ <Plug>(easymotion-overwin-w)
+map  f <Plug>(easymotion-bd-f)
+nmap f <Plug>(easymotion-overwin-f)
+nmap F <Plug>(easymotion-overwin-f2)
+map <Leader>l <Plug>(easymotion-bd-jk)
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
 

@@ -19,8 +19,10 @@ augroup common
   " Explorer
   autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
   " smartf
-  autocmd User SmartfEnter :hi Conceal ctermfg=220 guifg=#cc241d
-  autocmd User SmartfLeave :hi Conceal ctermfg=239 guifg=#504945
+  " autocmd User SmartfEnter :hi Conceal ctermfg=220 guifg=#cc241d
+  " autocmd User SmartfLeave :hi Conceal ctermfg=239 guifg=#504945
+  " easymotion
+  autocmd VimEnter * :EMCommandLineNoreMap <C-v> <Over>(paste)
 augroup END
 
 function! EmptyBuffer()

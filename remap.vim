@@ -104,8 +104,8 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 vmap <C-j> <Plug>(coc-snippets-select)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 "smartf
-nmap f <Plug>(coc-smartf-forward)
-nmap F <Plug>(coc-smartf-backward)
+" nmap f <Plug>(coc-smartf-forward)
+" nmap F <Plug>(coc-smartf-backward)
 
 "  选择区块
 nmap <silent> <cr> <Plug>(coc-range-select)
