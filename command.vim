@@ -1,14 +1,6 @@
-command! -nargs=0 Format :call CocAction('format')
-" Add `:Fold` command to fold current buffer.
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-" Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-" prettier command for coc
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
-command! -nargs=0 Mouse                                :call     s:ToggleMouse()
-command! -nargs=0 Tslint                               :call     CocAction('runCommand', 'tslint.lintProject')
-command! -nargs=0 Prettier                             :call     CocAction('runCommand', 'prettier.formatFile')
+command! -nargs=0 Mouse     :call     s:ToggleMouse()
+command! -nargs=0 Tf    :CocCommand tsserver.executeAutofix
 
 function! s:ToggleMouse()
   if empty(&mouse)
@@ -18,3 +10,10 @@ function! s:ToggleMouse()
   endif
 endfunction
 
+function! SetupCommandAbbrs(from, to)
+  exec 'cnoreabbrev <expr> '.a:from
+        \ .' ((getcmdtype() ==# ":" && getcmdline() ==# "'.a:from.'")'
+        \ .'? ("'.a:to.'") : ("'.a:from.'"))'
+endfunction
+" Use C to open coc config
+call SetupCommandAbbrs('C', 'CocConfig')

@@ -98,9 +98,12 @@
   ],
   // 代码提示优先级
   "snippets.priority": 99,
-  "emmet.priority": 90,
-  "tabnine.priority": 91,
+  "coc.source.file.priority": 98,
+  "coc.source.around.priority": 97,
+  "coc.source.buffer.priority": 96,
   "suggest.languageSourcePriority": 95,
+  "tabnine.priority": 91,
+  "emmet.priority": 90,
   // 代码报错提示
   "diagnostic.errorSign": " ",
   "diagnostic.warningSign": " ",
@@ -113,5 +116,7 @@
   "eslint.packageManager": "yarn",
   "eslint.autoFixOnSave": true,
   // tsserver
-  "tsserver.disableAutomaticTypeAcquisition": false
+  "tsserver.disableAutomaticTypeAcquisition": false,
+  // coc
+  "coc.preferences.extensionUpdateCheck": "daily"
 }

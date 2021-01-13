@@ -23,6 +23,8 @@ augroup common
   autocmd VimEnter * :EMCommandLineNoreMap <C-v> <Over>(paste)
   autocmd User EasyMotionPromptBegin silent! CocDisable
   autocmd User EasyMotionPromptEnd   silent! CocEnable
+  " coc 注释 hilight
+  autocmd FileType json syntax match Comment +\/\/.\+$+
 augroup END
 
 function! EmptyBuffer()
