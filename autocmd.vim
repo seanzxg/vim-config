@@ -2,7 +2,6 @@ augroup common
   autocmd!
   autocmd BufReadPost *.log normal! G
   autocmd BufWinEnter * call s:OnBufEnter()
-  autocmd ColorScheme * call s:my_bookmark_color()
   autocmd FileType * call s:OnFileType(expand('<amatch>'))
   " 文件树打开的时候，调用fzf不在文件树的buffer打开
   autocmd BufEnter * if bufname('#') =~ 'coc-explorer' && bufname('%') !~ 'coc-explorer' && winnr('$') > 1 | b# | exe "normal! \<c-w>\<c-w>" | :blast | endif
@@ -12,12 +11,13 @@ augroup common
   " 重新打开文件,回到上次鼠标悬停的位置
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
   " 自动改变当前项目的目录
-  " autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
+  autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
 
   autocmd VimEnter * sil! au! FileExplorer *
-  autocmd BufEnter * let d = expand('%') | if isdirectory(d) | bd | exe 'CocCommand explorer ' . d | endif
+  " autocmd BufEnter * let d = expand('%') | if isdirectory(d) | bd | exe 'CocCommand explorer ' . d | endif
+  autocmd BufEnter * let d = expand('%') | if isdirectory(d) | bd | exe 'Startify' | endif
   " Explorer
-  autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
+  " autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
   " smartf
   " autocmd User SmartfEnter :hi Conceal ctermfg=220 guifg=#cc241d
   " autocmd User SmartfLeave :hi Conceal ctermfg=239 guifg=#504945
@@ -52,13 +52,4 @@ function! s:OnBufEnter()
   unlet name
 endfunction
 " }}
-
-function! s:my_bookmark_color() abort
-  let s:scl_guibg = matchstr(execute('hi SignColumn'), 'guibg=\zs\S*')
-  if empty(s:scl_guibg)
-    let s:scl_guibg = 'NONE'
-  endif
-  exe 'hi MyBookmarkSign guifg=' . s:scl_guibg
-endfunction
-call s:my_bookmark_color() " don't remove this line!
 
