@@ -100,10 +100,6 @@ let g:coc_global_extensions = [
   \ 'coc-tslint-plugin',
   \ 'coc-fzf-preview',
   \ 'coc-pairs',
-  \ 'coc-sources',
-  \ 'coc-tag',
-  \ 'coc-dictionary',
-  \ 'coc-word',
   \ 'coc-styled-components',
   \ ]
 

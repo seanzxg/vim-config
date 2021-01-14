@@ -14,7 +14,7 @@ augroup common
   autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
 
   autocmd VimEnter * sil! au! FileExplorer *
-  " autocmd BufEnter * let d = expand('%') | if isdirectory(d) | bd | exe 'CocCommand explorer ' . d | endif
+  autocmd BufEnter * let d = expand('%') | if isdirectory(d) | exe 'CocCommand explorer ' . d | endif
   " 打开开屏页面，例如vim . or vim /dir
   autocmd BufEnter * let d = expand('%') | if isdirectory(d) | bd | exe 'Startify' | endif
   " Explorer
