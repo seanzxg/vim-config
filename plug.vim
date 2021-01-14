@@ -21,11 +21,18 @@ let g:undotree_WindowLayout = 3
 let g:CoolTotalMatches = 1
 
 " floaterm config
-let g:floaterm_height = 34 
+" let g:floaterm_height = 34 
+" let g:floaterm_rootmarkers = ['.git', '.gitignore']
+" let g:floaterm_autoclose = 2
+" let g:floaterm_width = 1.00 
+" let g:floaterm_position = "bottom"
+
+let g:floaterm_height = 0.4
 let g:floaterm_rootmarkers = ['.git', '.gitignore']
 let g:floaterm_autoclose = 2
-let g:floaterm_width = 1.00 
-let g:floaterm_position = "bottom"
+let g:floaterm_wintype="normal"
+let g:floaterm_position='bottom'
+
 
 " ctrlsf config
 let g:ctrlsf_auto_focus = {

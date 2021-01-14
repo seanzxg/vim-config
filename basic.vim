@@ -117,7 +117,7 @@ if has('gui_running')
   colorscheme gruvbox             "设置主题为 gruvbox
   set guioptions=                 "去掉两边的scrollbar
   set guifont=Hack\ Nerd\ Font:h14         "设置字体和字的大小
-  set transparency=10
+  set transparency=1
   set macmeta
   set antialias
 else

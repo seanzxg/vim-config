@@ -47,7 +47,7 @@
     "typescript": ["javascript"]
   },
   "snippets.textmateSnippetsRoots": [
-    "/Users/sean/.config/nvim/plugged/vscode-es7-javascript-react-snippets/snippets"
+    "/Users/sean/.vim/plugged/vscode-es7-javascript-react-snippets/snippets"
   ],
   // explorer
   "explorer.debug": false,
@@ -86,6 +86,7 @@
   //自动格式
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
+    "less",
     "markdown",
     "html",
     "javascript",
@@ -111,12 +112,13 @@
   "diagnostic.hintSign": " ",
   // git
   "git.showCommitInFloating": true,
-  "git.signOffset": 1,
+  //"git.signOffset": 1,
   // eslint
   "eslint.packageManager": "yarn",
   "eslint.autoFixOnSave": true,
   // tsserver
   "tsserver.disableAutomaticTypeAcquisition": false,
   // coc
-  "coc.preferences.extensionUpdateCheck": "daily"
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "npm.binPath": "/Users/sean/.nvm/versions/node/v12.16.2/bin//npm"
 }
