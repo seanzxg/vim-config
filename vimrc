@@ -114,6 +114,8 @@ endif
 
 if has('gui_macvim')
 " macvim 设置node path
-let g:coc_node_path = '/Users/sean/.nvm/versions/node/v12.16.2/bin//node'
+let g:coc_node_path = '/Users/sean/.nvm/versions/node/v12.10.0/bin//node'
 let g:floaterm_keymap_toggle = '<D-j>'
 endif
+let &t_TI = ""
+let &t_TE = ""
