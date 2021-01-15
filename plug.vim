@@ -30,7 +30,8 @@ let g:CoolTotalMatches = 1
 let g:floaterm_height = 0.4
 let g:floaterm_rootmarkers = ['.git', '.gitignore']
 let g:floaterm_autoclose = 2
-let g:floaterm_wintype="normal"
+let g:floaterm_width = 0.99 
+" let g:floaterm_wintype="normal"
 let g:floaterm_position='bottom'
 
 

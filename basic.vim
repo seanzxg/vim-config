@@ -42,7 +42,8 @@ set ignorecase
 " 关闭兼容模式
 set nocompatible
 " vim 自身命令行模式智能补全
-" set wildchar=<Tab> wildmenu wildmode=full
+set wildmenu
+set wildchar=<Tab> wildmenu wildmode=full
 " 剪切板
 " set clipboard=unnamed
 
@@ -111,21 +112,8 @@ set updatetime=300
 set shortmess+=c
 set title
 " set mouse=c
-if has('gui_running')
-  let macvim_skip_colorscheme=1
-  set bg=dark                     "设置背景为黑色
-  colorscheme gruvbox             "设置主题为 gruvbox
-  set guioptions=                 "去掉两边的scrollbar
-  set guifont=Hack\ Nerd\ Font:h14         "设置字体和字的大小
-  set transparency=1
-  set macmeta
-  set antialias
-else
-  set background=dark
-  let g:gruvbox_bold=0
-  let g:gruvbox_invert_selection=0
-  colorscheme gruvbox
-endif
+colorscheme gruvbox             "设置主题为 gruvbox
+
 set complete+=k
 set complete-=t
 set completeopt=menu,preview

@@ -99,10 +99,10 @@
   ],
   // 代码提示优先级
   "snippets.priority": 99,
-  "coc.source.file.priority": 98,
-  "coc.source.around.priority": 97,
-  "coc.source.buffer.priority": 96,
-  "suggest.languageSourcePriority": 95,
+  "coc.source.file.priority": 10,
+  "coc.source.around.priority": 9,
+  "coc.source.buffer.priority": 8,
+  "suggest.languageSourcePriority": 98,
   "tabnine.priority": 91,
   "emmet.priority": 90,
   // 代码报错提示

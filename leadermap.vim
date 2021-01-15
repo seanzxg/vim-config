@@ -18,6 +18,9 @@ nmap <leader>g? :map <leader>g<cr>
 " undotree config
 nmap <leader>u :UndotreeToggle<cr>
 let g:floaterm_keymap_toggle = '<leader>\'
+let g:floaterm_keymap_new    = '<F6>'
+let g:floaterm_keymap_prev   = '<F7>'
+let g:floaterm_keymap_next   = '<F8>'
 " 重命名
 nmap <leader>r <Plug>(coc-rename)
 " Remap keys for applying codeAction to the current buffer.

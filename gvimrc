@@ -44,6 +44,5 @@ macm Help.MacVim\ Help			key=<nop>
 map <D-p> :CtrlP<CR>
 map <D-b> :CocCommand explorer<CR>
 map <D-/> :Commentary<CR>
-map <D-.> ,`
-" map <D-j> ,\
+map <D-d> ,`
 map <D-f> :CtrlSF 
