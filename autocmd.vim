@@ -20,7 +20,7 @@ augroup common
   " Explorer
   " autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
   " easymotion
-  autocmd VimEnter * :EMCommandLineNoreMap <C-v> <Over>(paste)
+  " autocmd VimEnter * :EMCommandLineNoreMap <C-v> <Over>(paste)
   autocmd User EasyMotionPromptBegin silent! CocDisable
   autocmd User EasyMotionPromptEnd   silent! CocEnable
   " coc 注释 hilight
