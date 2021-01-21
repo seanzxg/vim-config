@@ -74,7 +74,7 @@ if has('nvim') || has('gui_running')
    nnoremap <silent> [fzf-p]i     :<C-u>CocCommand fzf-preview.CocTypeDefinitions<CR>
   
    nnoremap <silent> <leader>gs    :<C-u>CocCommand fzf-preview.GitStatus<CR>
-   nnoremap <silent> <leader>ga    :<C-u>CocCommand fzf-preview.GitActions<CR>
+   nnoremap <silent> <leader>gg    :<C-u>CocCommand fzf-preview.GitActions<CR>
 else
   nnoremap <silent> [fzf-p]f     :<C-u>FzfPreviewProjectFilesRpc<CR>
   nnoremap <silent> [fzf-p]m     :<C-u>FzfPreviewBookmarksRpc<CR>

@@ -10,8 +10,8 @@ set laststatus=2
 " 开启行号显示
 set number
 " 高亮显示当前行/列
-set cursorline
-set cursorcolumn
+" set cursorline
+" set cursorcolumn
 " 高亮显示搜索结果
 set hlsearch
 " 禁止折行
@@ -118,3 +118,8 @@ set complete+=k
 set complete-=t
 set completeopt=menu,preview
 
+" 提升速度
+" 这个正则引擎会导致打开文件失败
+" set regexpengine=1
+set noshowcmd
+set synmaxcol=150
