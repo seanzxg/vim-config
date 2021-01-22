@@ -91,9 +91,15 @@ else
   nnoremap <silent> <leader>gg    :<C-u>FzfPreviewGitActionsRpc<CR>
 endif
 
+nmap <leader>gf :G<CR>
+nmap <leader>gh :diffget //3<CR>
+nmap <leader>gl :diffget //2<CR>
+
+
 " vim-bookmarks
 nmap <Leader>mm <Plug>BookmarkToggle
 nmap <Leader>mi <Plug>BookmarkAnnotate
 nmap <Leader>ma <Plug>BookmarkShowAll
 nmap <Leader>mc <Plug>BookmarkClear
 nmap <Leader>mx <Plug>BookmarkClearAll
+

@@ -17,3 +17,4 @@ function! SetupCommandAbbrs(from, to)
 endfunction
 " Use C to open coc config
 call SetupCommandAbbrs('C', 'CocConfig')
+
