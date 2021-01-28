@@ -148,14 +148,11 @@ let g:bookmark_highlight_lines = 1
 " easymotiono
 
   " easymotion config
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-map  \ <Plug>(easymotion-bd-w)
-nmap \ <Plug>(easymotion-overwin-w)
+map  \ <Plug>(easymotion-sn)
+omap \ <Plug>(easymotion-tn)
 map  f <Plug>(easymotion-bd-f)
 nmap f <Plug>(easymotion-overwin-f)
 nmap F <Plug>(easymotion-overwin-f2)
 map <Leader>l <Plug>(easymotion-bd-jk)
 let g:EasyMotion_smartcase = 1
-let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
-
+let g:EasyMotion_keys = 'acdefijklmnopqrsuvwyz'
