@@ -60,36 +60,20 @@ nnoremap <silent> <leader>gh    :<C-u>FzfCommits<CR>
 nmap <Leader>f [fzf-p]
 xmap <Leader>f [fzf-p]
 
-if has('nvim') || has('gui_running')
-   nnoremap <silent> [fzf-p]f     :<C-u>CocCommand fzf-preview.ProjectFiles<CR>
-   nnoremap <silent> [fzf-p]m     :<C-u>CocCommand fzf-preview.Bookmarks<CR>
-   nnoremap          [fzf-p]g     :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
-   xnoremap          [fzf-p]g     "sy:CocCommand   fzf-preview.ProjectGrep<Space>-F<Space>"<C-r>=substitute(substitute(@s, '\n', '', 'g'), '/', '\\/', 'g')<CR>"
-   nnoremap <silent> [fzf-p]b     :<C-u>CocCommand fzf-preview.Buffers<CR>
-   nnoremap <silent> [fzf-p]B     :<C-u>CocCommand fzf-preview.AllBuffers<CR>
-   nnoremap <silent> [fzf-p]p     :<C-u>CocCommand fzf-preview.FromResources buffer project_mru<CR>
-   nnoremap <silent> [fzf-p]j     :<C-u>CocCommand fzf-preview.Jumps<CR>
-   nnoremap <silent> [fzf-p]c     :<C-u>CocCommand fzf-preview.Changes<CR>
-   nnoremap <silent> [fzf-p]d     :<C-u>CocCommand fzf-preview.CocDiagnostics<CR>
-   nnoremap <silent> [fzf-p]i     :<C-u>CocCommand fzf-preview.CocTypeDefinitions<CR>
-  
-   nnoremap <silent> <leader>gs    :<C-u>CocCommand fzf-preview.GitStatus<CR>
-   nnoremap <silent> <leader>gg    :<C-u>CocCommand fzf-preview.GitActions<CR>
-else
-  nnoremap <silent> [fzf-p]f     :<C-u>FzfPreviewProjectFilesRpc<CR>
-  nnoremap <silent> [fzf-p]m     :<C-u>FzfPreviewBookmarksRpc<CR>
-  nnoremap          [fzf-p]g     :<C-u>FzfPreviewProjectGrepRpc<Space>
-  xnoremap          [fzf-p]g     "sy:FzfPreviewProjectGrepRpc<Space>-F<Space>"<C-r>=substitute(substitute(@s, '\n', '', 'g'), '/', '\\/', 'g')<CR>"
-  nnoremap <silent> [fzf-p]b     :<C-u>FzfPreviewBuffersRpc<CR>
-  nnoremap <silent> [fzf-p]B     :<C-u>FzfPreviewAllBuffersRpc<CR>
-  nnoremap <silent> [fzf-p]p     :<C-u>FzfPreviewFromResourcesRpc buffer project_mru<CR>
-  nnoremap <silent> [fzf-p]j     :<C-u>FzfPreviewJumpsRpc<CR>
-  nnoremap <silent> [fzf-p]c     :<C-u>FzfPreviewChangesRpc<CR>
-  nnoremap <silent> [fzf-p]q     :<C-u>FzfPreviewQuickFixRpc<CR>
+nnoremap <silent> [fzf-p]f     :<C-u>CocCommand fzf-preview.ProjectFiles<CR>
+nnoremap <silent> [fzf-p]m     :<C-u>CocCommand fzf-preview.Bookmarks<CR>
+nnoremap          [fzf-p]g     :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
+xnoremap          [fzf-p]g     "sy:CocCommand   fzf-preview.ProjectGrep<Space>-F<Space>"<C-r>=substitute(substitute(@s, '\n', '', 'g'), '/', '\\/', 'g')<CR>"
+nnoremap <silent> [fzf-p]b     :<C-u>CocCommand fzf-preview.Buffers<CR>
+nnoremap <silent> [fzf-p]B     :<C-u>CocCommand fzf-preview.AllBuffers<CR>
+nnoremap <silent> [fzf-p]p     :<C-u>CocCommand fzf-preview.FromResources buffer project_mru<CR>
+nnoremap <silent> [fzf-p]j     :<C-u>CocCommand fzf-preview.Jumps<CR>
+nnoremap <silent> [fzf-p]c     :<C-u>CocCommand fzf-preview.Changes<CR>
+nnoremap <silent> [fzf-p]d     :<C-u>CocCommand fzf-preview.CocDiagnostics<CR>
+nnoremap <silent> [fzf-p]i     :<C-u>CocCommand fzf-preview.CocTypeDefinitions<CR>
 
-  nnoremap <silent> <leader>gs    :<C-u>FzfPreviewGitStatusRpc<CR>
-  nnoremap <silent> <leader>gg    :<C-u>FzfPreviewGitActionsRpc<CR>
-endif
+nnoremap <silent> <leader>gs    :<C-u>CocCommand fzf-preview.GitStatus<CR>
+nnoremap <silent> <leader>gg    :<C-u>CocCommand fzf-preview.GitActions<CR>
 
 nmap <leader>gf :G<CR>
 nmap <leader>gh :diffget //3<CR>

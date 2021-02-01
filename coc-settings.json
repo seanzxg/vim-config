@@ -47,7 +47,7 @@
     "typescript": ["javascript"]
   },
   "snippets.textmateSnippetsRoots": [
-    "/Users/sean/.vim/plugged/vscode-es7-javascript-react-snippets/snippets"
+    "/Users/sean/.config/nvim/plugged/vscode-es7-javascript-react-snippets/snippets"
   ],
   // explorer
   "explorer.debug": false,
