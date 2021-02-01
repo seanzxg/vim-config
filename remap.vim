@@ -55,7 +55,6 @@ inoremap <C-o> <C-o>o
 inoremap <C-k> <C-o>O
 
 " command line mode ********************************
-cnoremap w!! w !sudo tee % >/dev/null:
 cnoremap <C-b> <S-Left>
 cnoremap <C-f> <S-Right>
 cnoremap <C-a> <Home>

@@ -12,7 +12,6 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'easymotion/vim-easymotion'
 Plug 'voldikss/vim-floaterm'
 Plug 'tpope/vim-commentary'
-Plug 'kien/ctrlp.vim'
 Plug 'mbbill/undotree'
 Plug 'terryma/vim-expand-region'
 Plug 'dyng/ctrlsf.vim'
@@ -31,9 +30,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release/rpc' }
 Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
-" buffer
-" Plug 'kyazdani42/nvim-web-devicons'
-" Plug 'romgrk/barbar.nvim'
 
 call plug#end()
 filetype plugin on

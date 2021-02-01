@@ -10,7 +10,7 @@ set laststatus=2
 " 开启行号显示
 set number
 " 高亮显示当前行/列
-" set cursorline
+set cursorline
 " set cursorcolumn
 " 高亮显示搜索结果
 set hlsearch
