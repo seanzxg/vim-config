@@ -32,6 +32,8 @@ Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release/rpc' }
 Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
 
 Plug 'qpkorr/vim-bufkill'
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+
 
 
 call plug#end()
@@ -85,3 +87,4 @@ let g:startify_custom_footer =
            \"    t:  open in tab",
            \ '']
 
+nnoremap <silent> <leader> :WhichKey ','<CR>
