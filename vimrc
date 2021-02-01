@@ -31,6 +31,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release/rpc' }
 Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
 
+Plug 'qpkorr/vim-bufkill'
+
+
 call plug#end()
 filetype plugin on
 syntax on

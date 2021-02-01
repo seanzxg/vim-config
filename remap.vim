@@ -24,12 +24,6 @@ inoremap <C-v> <C-o>"+]p
 xnoremap <C-c> "+y
 "用默认寄存器替换当前选定的文本，而不将其隐藏
 vnoremap p "_dP
-" some shortcut for git
-" nnoremap gci :Gcommit -v<CR>
-" nnoremap gca :Gcommit -a -v<CR>
-" nnoremap gcc :Gcommit -v -- <C-R>=expand('%')<CR><CR>
-" nnoremap gp :CocCommand git.push<CR>
-
 "Smart way to move between windows
 noremap <C-j> <C-W>j
 noremap <C-k> <C-W>k
@@ -43,12 +37,9 @@ nnoremap <C-y> 2<C-y>
 " insert mode ********************************
 inoremap <C-p> <Up>
 inoremap <C-n> <Down>
-
 inoremap <C-f> <Right>
 inoremap <C-b> <Left>
-
 inoremap <C-l> <Right>
-
 inoremap <C-e> <End>
 inoremap <C-a> <C-o>^
 inoremap <C-o> <C-o>o
@@ -66,14 +57,13 @@ cnoremap <C-t> <C-R>=expand("%:p:h") . "/" <CR>
 " plugin  ********************************
 
 " coc.nvim
-nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-" Use `[g` and `]g` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
+" nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+" nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+" inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+" inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+
+nmap <silent> <C-i> <Plug>(coc-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 

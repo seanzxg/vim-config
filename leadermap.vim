@@ -1,20 +1,10 @@
 nnoremap <leader>. :source $MYVIMRC<CR>
 nnoremap <leader>w :w<CR>
 " buffer
-nnoremap <leader>q :bd<CR>
+nnoremap <leader>q :BD<CR>
+" window
 nmap <leader>v :vsplit<cr>
 nmap <leader>s :split<cr>
-" Fugitive config
-" nmap <leader>gb :Gblame<cr>
-" nmap <leader>gc :Gcommit<cr>
-" nmap <leader>gd :Gdiff<cr>
-" nmap <leader>gg :Ggrep
-" nmap <leader>gh :Glog<cr>
-" nmap <leader>gl :Git pull<cr>
-" nmap <leader>gp :Git push<cr>
-" nmap <leader>gs :Gstatus<cr>
-" nmap <leader>gw :Gbrowse<cr>
-nmap <leader>g? :map <leader>g<cr>
 
 " undotree config
 nmap <leader>u :UndotreeToggle<cr>
@@ -29,7 +19,7 @@ nmap <leader>a  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
 nmap <leader>`  <Plug>(coc-fix-current)
 " Replace all of current word
-" nnoremap <leader>s :%s/\<<C-r><C-w>\>//g<left><left>
+nnoremap <leader>w :%s/\<<C-r><C-w>\>//g<left><left>
  " coc.nvim
 " nmap <leader>f <Plug>(coc-refactor)
 " nmap <leader>a <Plug>(coc-codelens-action)
@@ -51,15 +41,13 @@ nnoremap <silent><nowait> <leader>cp  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <leader>cr  :<C-u>CocListResume<CR>
 
 "fzf ,f+name
+" key f
+nmap <Leader>f [fzf-p]
+xmap <Leader>f [fzf-p]
 nnoremap <leader>fc :FzfCommands<CR>
 nnoremap <leader>fa :<C-u>FzfAg<CR>
 nnoremap <leader>fw :<C-u>FzfWindows<CR>
 nnoremap <silent> <leader>gh    :<C-u>FzfCommits<CR>
-
-
-nmap <Leader>f [fzf-p]
-xmap <Leader>f [fzf-p]
-
 nnoremap <silent> [fzf-p]f     :<C-u>CocCommand fzf-preview.ProjectFiles<CR>
 nnoremap <silent> [fzf-p]m     :<C-u>CocCommand fzf-preview.Bookmarks<CR>
 nnoremap          [fzf-p]g     :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
@@ -72,13 +60,13 @@ nnoremap <silent> [fzf-p]c     :<C-u>CocCommand fzf-preview.Changes<CR>
 nnoremap <silent> [fzf-p]d     :<C-u>CocCommand fzf-preview.CocDiagnostics<CR>
 nnoremap <silent> [fzf-p]i     :<C-u>CocCommand fzf-preview.CocTypeDefinitions<CR>
 
+" key g
 nnoremap <silent> <leader>gs    :<C-u>CocCommand fzf-preview.GitStatus<CR>
 nnoremap <silent> <leader>gg    :<C-u>CocCommand fzf-preview.GitActions<CR>
 
-nmap <leader>gf :G<CR>
-nmap <leader>gh :diffget //3<CR>
-nmap <leader>gl :diffget //2<CR>
-
+" nmap <leader>gf :G<CR>
+" nmap <leader>gh :diffget //3<CR>
+" nmap <leader>gl :diffget //2<CR>
 
 " vim-bookmarks
 nmap <Leader>mm <Plug>BookmarkToggle

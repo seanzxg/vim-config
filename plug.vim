@@ -1,14 +1,3 @@
-" ctrlp config
-let g:ctrlp_map = ''
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-let g:ctrlp_prompt_mappings = {
-  \ 'PrtHistory(-1)':       ['<c-j>'],
-  \ 'PrtHistory(1)':        ['<c-k>'],
-  \ 'PrtSelectMove("j")':   ['<c-n>', '<down>'],
-  \ 'PrtSelectMove("k")':   ['<c-p>', '<up>'],
-  \ }
-let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:10'
-
 " airline config
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'jsformatter'
@@ -20,18 +9,11 @@ let g:undotree_WindowLayout = 3
 " vim-cool 
 let g:CoolTotalMatches = 1
 
-" floaterm config
-" let g:floaterm_height = 34 
-" let g:floaterm_rootmarkers = ['.git', '.gitignore']
-" let g:floaterm_autoclose = 2
-" let g:floaterm_width = 1.00 
-" let g:floaterm_position = "bottom"
-
+" vim-floaterm
 let g:floaterm_height = 0.4
 let g:floaterm_rootmarkers = ['.git', '.gitignore']
 let g:floaterm_autoclose = 2
 let g:floaterm_width = 1.00 
-" let g:floaterm_wintype="normal"
 let g:floaterm_position='bottom'
 
 
@@ -41,8 +23,8 @@ let g:ctrlsf_auto_focus = {
     \ "duration_less_than": 1000
     \ }
 let g:ctrlsf_winsize = '45%'
-inoremap <C-t> <Esc>:CtrlSFToggle<CR>
-nnoremap <C-t> :CtrlSFToggle<CR>
+" inoremap <C-t> <Esc>:CtrlSFToggle<CR>
+nmap <C-f> :CtrlSFToggle<CR>
 let g:ctrlsf_position = 'right'
 let g:ctrlsf_mapping = {
       \"open"    : ["<CR>", "o"],
@@ -109,18 +91,6 @@ let g:coc_global_extensions = [
   \ 'coc-pairs',
   \ 'coc-styled-components',
   \ ]
-
-
-" Map function and class text objects
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
-" Add `:Fold` command to fold current buffer.
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-" Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-" prettier command for coc
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " startify
 let g:startify_session_autoload = 1

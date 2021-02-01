@@ -25,8 +25,6 @@ augroup common
   autocmd User EasyMotionPromptEnd   silent! CocEnable
   " coc 注释 hilight
   autocmd FileType json syntax match Comment +\/\/.\+$+
-  " gitgutter
-  " autocmd BufReadPost fugitive://* set bufhidden=delete
 augroup END
 
 function! EmptyBuffer()
@@ -53,5 +51,3 @@ function! s:OnBufEnter()
   endif
   unlet name
 endfunction
-" }}
-
