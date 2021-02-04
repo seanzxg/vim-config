@@ -1,7 +1,8 @@
 nnoremap <leader>. :source $MYVIMRC<CR>
 nnoremap <leader>w :w<CR>
 " buffer
-nnoremap <leader>q :BD<CR>
+nnoremap <leader>q :BufferClose<CR>
+nnoremap <leader>p :BufferPick<CR>
 " window
 nmap <leader>v :vsplit<cr>
 nmap <leader>s :split<cr>
@@ -75,3 +76,14 @@ nmap <Leader>ma <Plug>BookmarkShowAll
 nmap <Leader>mc <Plug>BookmarkClear
 nmap <Leader>mx <Plug>BookmarkClearAll
 
+
+
+nnoremap <silent>    <leader>1 :BufferGoto 1<CR>
+nnoremap <silent>    <leader>2 :BufferGoto 2<CR>
+nnoremap <silent>    <leader>3 :BufferGoto 3<CR>
+nnoremap <silent>    <leader>4 :BufferGoto 4<CR>
+nnoremap <silent>    <leader>5 :BufferGoto 5<CR>
+nnoremap <silent>    <leader>6 :BufferGoto 6<CR>
+nnoremap <silent>    <leader>7 :BufferGoto 7<CR>
+nnoremap <silent>    <leader>8 :BufferGoto 8<CR>
+nnoremap <silent>    <leader>9 :BufferGoto 9<CR>

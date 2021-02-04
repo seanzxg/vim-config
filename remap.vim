@@ -17,8 +17,8 @@ vnoremap > >gv
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 " 用 m/M 来切换buffer
-noremap gn :bn<CR>
-noremap gp :bp<CR>
+noremap gn :BufferNext<CR>
+noremap gp :BufferPrevious<CR>
 " Map Ctrl+V to paste in Insert mode
 inoremap <C-v> <C-o>"+]p
 xnoremap <C-c> "+y
