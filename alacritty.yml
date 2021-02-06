@@ -50,7 +50,7 @@ window:
   startup_mode: Maximized 
 key_bindings:
   # - { key: P,            mods: Command, chars: ":CtrlP\n"                            }
-  - { key: P,            mods: Command, chars: ",ff"                                 }
+  - { key: P,            mods: Command, chars: ":CocCommand fzf-preview.ProjectFiles\n"                                 }
   - { key: Slash,        mods: Command, chars: ":Commentary\n"                       }
   - { key: F,            mods: Command | Shift, chars: ":CtrlSF "                    }
   - { key: B,            mods: Command, chars: ":CocCommand explorer\n"              }

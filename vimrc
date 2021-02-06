@@ -87,6 +87,8 @@ let g:startify_custom_footer =
            \"    s:  open in split",
            \"    v:  open in vertical split",
            \"    t:  open in tab",
+           \"    <c-z> suspend vim and give you a shell",
+           \"    fg back to vim",
            \ '']
 
 
