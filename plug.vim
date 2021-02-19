@@ -42,7 +42,7 @@ let g:ctrlsf_mapping = {
     \ }
 
 " vim-region
-" map <Space> <Plug>(expand_region_expand)
+map <Space> <Plug>(expand_region_expand)
 
 " closetag config
 let g:closetag_filetypes = 'html,javascript,javascriptreact,typescript,typescriptreact'
@@ -91,6 +91,7 @@ let g:coc_global_extensions = [
   \ 'coc-fzf-preview',
   \ 'coc-pairs',
   \ 'coc-styled-components',
+  \ 'coc-vetur',
   \ ]
 
 " startify

@@ -28,7 +28,6 @@
     "typeParameter": "\uf728",
     "default": "\uf29c"
   },
-
   // list
   "list.insertMappings": {
     "<C-n>": "<Down>",
@@ -40,11 +39,20 @@
   "list.selectedSignText": " ",
   // 代码块
   "snippets.ultisnips.enable": true,
-  "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/snippets"],
+  "snippets.ultisnips.directories": [
+    "UltiSnips",
+    "~/.config/nvim/snippets"
+  ],
   "snippets.extends": {
-    "javascriptreact": ["javascript"],
-    "typescriptreact": ["typescript"],
-    "typescript": ["javascript"]
+    "javascriptreact": [
+      "javascript"
+    ],
+    "typescriptreact": [
+      "typescript"
+    ],
+    "typescript": [
+      "javascript"
+    ]
   },
   "snippets.textmateSnippetsRoots": [
     "/Users/sean/.config/nvim/plugged/vscode-es7-javascript-react-snippets/snippets"
@@ -70,20 +78,49 @@
   "explorer.icon.enableVimDevicons": false,
   "explorer.file.showHiddenFiles": false,
   "explorer.keyMappings.global": {
-    "<cr>": ["expandable?", "expand", "open"],
-    "o": ["expandable?", ["expanded?", "collapse", "expand"], "open"],
+    "<cr>": [
+      "expandable?",
+      "expand",
+      "open"
+    ],
+    "o": [
+      "expandable?",
+      [
+        "expanded?",
+        "collapse",
+        "expand"
+      ],
+      "open"
+    ],
     "v": "open:vsplit",
     "c": "preview.content"
   },
   // emmet 文件支持
   "emmet.includeLanguages": {
     "javascript": "javascriptreact",
-    "typescript": "typescriptreact"
+    "typescript": "typescriptreact",
+    "vue-html": "html"
   },
-  "emmet.optimizeStylesheetParsing": false,
-  "emmet.showExpandedAbbreviation": "never",
-  "emmet.showAbbreviationSuggestions": false,
+  // 代码提示优先级
+  "snippets.priority": 99,
+  "coc.source.file.priority": 10,
+  "coc.source.around.priority": 9,
+  "coc.source.buffer.priority": 8,
+  "suggest.languageSourcePriority": 98,
+  "emmet.priority": 90,
+  // 代码报错提示
+  "diagnostic.errorSign": " ",
+  "diagnostic.warningSign": " ",
+  "diagnostic.infoSign": "",
+  "diagnostic.hintSign": " ",
+  // tsserver
+  "tsserver.disableAutomaticTypeAcquisition": false,
+  // coc
+  "coc.preferences.extensionUpdateCheck": "daily",
   //自动格式
+  //"eslint.packageManager": "yarn",
+  //"eslint.autoFixOnSave": true,
+  //"eslint.format.enable": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "less",
@@ -95,27 +132,7 @@
     "json",
     "javascriptreact",
     "typescript.tsx",
-    "graphql"
-  ],
-  // 代码提示优先级
-  "snippets.priority": 99,
-  "coc.source.file.priority": 10,
-  "coc.source.around.priority": 9,
-  "coc.source.buffer.priority": 8,
-  "suggest.languageSourcePriority": 98,
-  "tabnine.priority": 91,
-  "emmet.priority": 90,
-  // 代码报错提示
-  "diagnostic.errorSign": " ",
-  "diagnostic.warningSign": " ",
-  "diagnostic.infoSign": "",
-  "diagnostic.hintSign": " ",
-  // eslint
-  "eslint.packageManager": "yarn",
-  "eslint.autoFixOnSave": true,
-  // tsserver
-  "tsserver.disableAutomaticTypeAcquisition": false,
-  // coc
-  "coc.preferences.extensionUpdateCheck": "daily",
-  "npm.binPath": "/Users/sean/.nvm/versions/node/v12.16.2/bin//npm"
+    "graphql",
+    "vue"
+  ]
 }

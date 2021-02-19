@@ -1,6 +1,6 @@
 # Font configuration (changes require restart)
 font:
-  size: 14
+  size: 16
   normal:
     family: Hack Nerd Font
     style: Regular
@@ -43,12 +43,9 @@ window:
     y: 0
   dynamic_padding: false
   decorations: full
-  #   - Windowed
-  #   - Maximized
-  #   - Fullscreen
-  #   - SimpleFullscreen
   startup_mode: Maximized 
 key_bindings:
+  - { key: N,        mods: Command, command: { program: "open", args: ["-n", "/Applications/Alacritty.app"] } }
   # - { key: P,            mods: Command, chars: ":CtrlP\n"                            }
   - { key: P,            mods: Command, chars: ":CocCommand fzf-preview.ProjectFiles\n"                                 }
   - { key: Slash,        mods: Command, chars: ":Commentary\n"                       }

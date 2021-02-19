@@ -34,6 +34,7 @@ Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --f
 Plug 'liuchengxu/vim-which-key'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
+Plug 'posva/vim-vue'
 
 
 
@@ -64,6 +65,7 @@ let g:startify_commands = [
         \ ]
 let g:startify_bookmarks = [
             \ { 'ap': '~/work/kuaishou-frontend-ad-alliance-promoter' },
+            \ { 'ac': '~/work/kuaishou-frontend-ad-alliance-activity' },
             \ { 'ss': '~/work/kuaishou-frontend-ad-ssp' },
             \ { 'so': '~/work/kuaishou-frontend-ad-ssp-operation' },
             \ { 'ui': '~/work/r-ui' },
