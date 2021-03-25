@@ -39,20 +39,11 @@
   "list.selectedSignText": " ",
   // 代码块
   "snippets.ultisnips.enable": true,
-  "snippets.ultisnips.directories": [
-    "UltiSnips",
-    "~/.config/nvim/snippets"
-  ],
+  "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/snippets"],
   "snippets.extends": {
-    "javascriptreact": [
-      "javascript"
-    ],
-    "typescriptreact": [
-      "typescript"
-    ],
-    "typescript": [
-      "javascript"
-    ]
+    "javascriptreact": ["javascript"],
+    "typescriptreact": ["typescript"],
+    "typescript": ["javascript"]
   },
   "snippets.textmateSnippetsRoots": [
     "/Users/sean/.config/nvim/plugged/vscode-es7-javascript-react-snippets/snippets"
@@ -78,24 +69,14 @@
   "explorer.icon.enableVimDevicons": false,
   "explorer.file.showHiddenFiles": false,
   "explorer.keyMappings.global": {
-    "<cr>": [
-      "expandable?",
-      "expand",
-      "open"
-    ],
-    "o": [
-      "expandable?",
-      [
-        "expanded?",
-        "collapse",
-        "expand"
-      ],
-      "open"
-    ],
+    "<cr>": ["expandable?", "expand", "open"],
+    "o": ["expandable?", ["expanded?", "collapse", "expand"], "open"],
     "v": "open:vsplit",
     "c": "preview.content"
   },
   // emmet 文件支持
+  "emmet.showAbbreviationSuggestions": true,
+  "emmet.showExpandedAbbreviation": "always",
   "emmet.includeLanguages": {
     "javascript": "javascriptreact",
     "typescript": "typescriptreact",
@@ -107,22 +88,31 @@
   "coc.source.around.priority": 9,
   "coc.source.buffer.priority": 8,
   "suggest.languageSourcePriority": 98,
-  "emmet.priority": 90,
+  "emmet.priority": 50,
   // 代码报错提示
   "diagnostic.errorSign": " ",
   "diagnostic.warningSign": " ",
   "diagnostic.infoSign": "",
   "diagnostic.hintSign": " ",
+  // eslint
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue"
+  ],
+  "eslint.autoFixOnSave": true,
+  // vetur
+  "vetur.trace.server": "verbose",
   // tsserver
   "tsserver.disableAutomaticTypeAcquisition": false,
   // coc
   "coc.preferences.extensionUpdateCheck": "daily",
   //自动格式
-  //"eslint.packageManager": "yarn",
-  //"eslint.autoFixOnSave": true,
-  //"eslint.format.enable": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
+    "scss",
     "less",
     "markdown",
     "html",

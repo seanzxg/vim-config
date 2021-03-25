@@ -92,6 +92,7 @@ let g:coc_global_extensions = [
   \ 'coc-pairs',
   \ 'coc-styled-components',
   \ 'coc-vetur',
+  \ 'coc-stylelint',
   \ ]
 
 " startify

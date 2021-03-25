@@ -30,13 +30,10 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release/rpc' }
 Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
-
 Plug 'liuchengxu/vim-which-key'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
 Plug 'posva/vim-vue'
-
-
 
 
 call plug#end()
@@ -68,6 +65,7 @@ let g:startify_bookmarks = [
             \ { 'ac': '~/work/kuaishou-frontend-ad-alliance-activity' },
             \ { 'ss': '~/work/kuaishou-frontend-ad-ssp' },
             \ { 'so': '~/work/kuaishou-frontend-ad-ssp-operation' },
+            \ { 'li': '~/work/kuaishou-frontend-ad-alliance-live' },
             \ { 'ui': '~/work/r-ui' },
             \ { 'gd': '~/work/gitdemo' },
             \ { 'c': '~/vim-config/vimrc' },
@@ -92,5 +90,4 @@ let g:startify_custom_footer =
            \"    <c-z> suspend vim and give you a shell",
            \"    fg back to vim",
            \ '']
-
 
