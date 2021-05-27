@@ -124,5 +124,6 @@
     "typescript.tsx",
     "graphql",
     "vue"
-  ]
+  ],
+  "javascript.validate.enable": false
 }

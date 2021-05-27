@@ -1,7 +1,7 @@
 " airline config
 " let g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#tabline#formatter = 'jsformatter'
-let g:airline#extensions#nvimlsp#enabled= 0
+" let g:airline#extensions#nvimlsp#enabled= 0
 
 " Undotree settings
 let g:undotree_SplitWidth = 60
@@ -61,7 +61,8 @@ let g:mta_filetypes = {
     \}
 
 " vim-root config
-let g:rooter_patterns = ['src', '.git', 'package.json']
+" let g:rooter_patterns = ['src', '.git', 'package.json']
+let g:rooter_patterns = ['.git']
 let g:rooter_silent_chdir = 1
 
 

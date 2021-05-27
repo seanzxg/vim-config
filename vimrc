@@ -66,6 +66,7 @@ let g:startify_bookmarks = [
             \ { 'ss': '~/work/kuaishou-frontend-ad-ssp' },
             \ { 'so': '~/work/kuaishou-frontend-ad-ssp-operation' },
             \ { 'li': '~/work/kuaishou-frontend-ad-alliance-live' },
+            \ { 'ad': '~/learn/kuaishou-frontend-alliance-ad' },
             \ { 'ui': '~/work/r-ui' },
             \ { 'gd': '~/work/gitdemo' },
             \ { 'c': '~/vim-config/vimrc' },
